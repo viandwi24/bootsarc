@@ -7,12 +7,10 @@
   "repository": "https://github.com/viandwi24/bootsarc",
   "scripts": {
     "dev": "gulp",
-    "build": "yarn check:build:dir:pages && yarn check:build:dir:dist && yarn gulp build",
+    "build": "yarn gulp build",
     "css:lint": "gulp css:lint",
     "js:lint": "eslint --ext \".js\" --ignore-path .gitignore .",
-    "lint": "yarn css:lint && yarn js:lint",
-    "check:build:dir:pages": "[ ! -d \"pages\" ] && mkdir pages",
-    "check:build:dir:dist": "[ ! -d \"dist\" ] && mkdir dist && mkdir dist/js && mkdir dist/css"
+    "lint": "yarn css:lint && yarn js:lint"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
