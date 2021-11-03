@@ -62,3 +62,4 @@ jobs:
           force: true
           directory: "."
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
