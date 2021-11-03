@@ -49,6 +49,9 @@ jobs:
       - name: Run Build
         run: yarn build
 
+      - name: Add Build Dir
+        run: git add pages/**/* -f && git add dist/**/* -f
+
       - name: GitHub Push
         uses: ad-m/github-push-action@v0.5.0
         with:
