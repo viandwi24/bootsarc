@@ -7,7 +7,10 @@
   "repository": "https://github.com/viandwi24/bootsarc",
   "scripts": {
     "dev": "gulp",
-    "build": "gulp build"
+    "build": "gulp build",
+    "css:lint": "gulp css:lint",
+    "js:lint": "eslint --ext \".js\" --ignore-path .gitignore .",
+    "lint": "yarn css:lint && yarn js:lint"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
