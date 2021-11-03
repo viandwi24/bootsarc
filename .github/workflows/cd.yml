@@ -49,13 +49,11 @@ jobs:
       - name: Run Build
         run: yarn build
 
-      - name: Add Build Dir
-        run: git add pages/**/* -f && git add dist/**/* -f
-
       - name: Commit files
         run: |
           git config --local user.email "fiandwi0424@gmail.com"
           git config --local user.name "viandwi24"
+          git add pages/**/* -f && git add dist/**/* -f
           git commit -m "build: build dist & pages" -a
 
       - name: GitHub Push
