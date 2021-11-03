@@ -1,0 +1,5 @@
+#!/bin/bash
+
+npx gulp build
+git add -f pages/*
+git add -f dist/*
