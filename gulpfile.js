@@ -71,6 +71,7 @@ gulp.task('css:lint', () =>
 );
 gulp.task('watching', gulp.series('css:lint', 'js:build', 'css:build', 'html:build', function() {
     browserSync.init({
+        open: false,
         ui: {
             port: 4000
         },

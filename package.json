@@ -10,7 +10,7 @@
     "build": "yarn gulp build",
     "css:lint": "gulp css:lint",
     "js:lint": "eslint --ext \".js\" --ignore-path .gitignore .",
-    "lint": "yarn css:lint && yarn js:lint"
+    "lint": "yarn css:lint && yarn js:lint",
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -37,6 +37,7 @@
     "webpack-stream": "^7.0.0"
   },
   "dependencies": {
+    "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.1.3"
   }
 }

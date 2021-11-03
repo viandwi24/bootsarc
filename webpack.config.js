@@ -1,12 +1,19 @@
 const path = require('path');
 
 const outputDir = path.resolve(__dirname, 'dist/js');
+
+const script = (src) => path.resolve(__dirname, `src/scripts/${src}.js`)
+
 module.exports = {
     mode: "production",
-    entry: path.resolve(__dirname, 'src/scripts/bootsarc.js'),
+    entry: {
+        'bootsarc.bundle': script('bootsarc.bundle'),
+        'bootsarc.bootstrap': script('bootsarc.bootstrap'),
+        'bootsarc': script('bootsarc')
+    },
     output: {
         path: outputDir,
-        filename: 'bootsarc.js'
+        filename: '[name].js'
     },
     module: {
         rules: [
