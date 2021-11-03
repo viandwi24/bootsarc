@@ -46,12 +46,6 @@ jobs:
       - name: Run linter 👀
         run: yarn lint
 
-      - name: Check Build Dir - Pages
-        run: [ ! -d "pages" ] && mkdir pages
-
-      - name: Check Build Dir - Dist
-        run: [ ! -d "dist" ] && mkdir dist
-
       - name: Run Build
         run: yarn build
 
