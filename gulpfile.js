@@ -1,5 +1,8 @@
 'use strict';
 
+const path = require('path');
+const fs = require('fs')
+
 var gulp            = require('gulp');
 var browserSync     = require('browser-sync').create();
 var sass            = require('gulp-sass')(require('sass'));
@@ -35,6 +38,17 @@ var manageEnv = function(environment) {
 // ======================================================
 //                      GULP TASK
 // ======================================================
+gulp.task('prepare', () => {
+    return new Promise((resolve, reject) => {
+        const dirs = ['./dist', './dist/js', './pages'];
+        dirs.forEach(dir => {
+            if (!fs.existsSync(dir)) {
+                fs.mkdirSync(dir);
+            }
+        });
+        resolve();
+    });
+})
 gulp.task('html:build', () =>
     gulp.src('./src/pages/**/*.+(html|nunjucks)')
         .pipe(data(getData))
@@ -92,5 +106,5 @@ gulp.task('watching', gulp.series('css:lint', 'js:build', 'css:build', 'html:bui
     gulp.watch("./src/**/*.+(html|nunjucks)", gulp.series('html:build'));
     gulp.watch("./pages/**/*.html").on('change', browserSync.reload);
 }));
-gulp.task('default', gulp.series('watching'));
-gulp.task('build', gulp.series('css:lint', 'js:build', 'css:build', 'html:build'));
+gulp.task('default', gulp.series('prepare', 'watching'));
+gulp.task('build', gulp.series('prepare', 'css:lint', 'js:build', 'css:build', 'html:build'));
