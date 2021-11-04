@@ -1,8 +1,8 @@
 const path = require('path');
 
-const outputDir = path.resolve(__dirname, 'dist/js');
+const outputDir = path.join(__dirname, 'dist/js');
 
-const script = (src) => path.resolve(__dirname, `src/scripts/${src}.js`)
+const script = (src) => path.join(__dirname, `src/scripts/${src}.js`)
 
 module.exports = {
     mode: "production",

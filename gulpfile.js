@@ -38,17 +38,6 @@ var manageEnv = function(environment) {
 // ======================================================
 //                      GULP TASK
 // ======================================================
-gulp.task('prepare', () => {
-    return new Promise((resolve, reject) => {
-        const dirs = ['./dist', './dist/js', './pages'];
-        dirs.forEach(dir => {
-            if (!fs.existsSync(dir)) {
-                fs.mkdirSync(dir);
-            }
-        });
-        resolve();
-    });
-})
 gulp.task('html:build', () =>
     gulp.src('./src/pages/**/*.+(html|nunjucks)')
         .pipe(data(getData))
@@ -68,7 +57,7 @@ gulp.task('css:build', ()  =>
         .pipe(browserSync.stream())
 );
 gulp.task('js:build', () =>
-    gulp.src('./dist/js/')
+    gulp.src('./dist/js/', { allowEmpty: true })
         .pipe(webpack(require('./webpack.config.js')))
         .pipe(gulp.dest('./dist/js/'))
         .pipe(browserSync.stream())
@@ -106,5 +95,5 @@ gulp.task('watching', gulp.series('css:lint', 'js:build', 'css:build', 'html:bui
     gulp.watch("./src/**/*.+(html|nunjucks)", gulp.series('html:build'));
     gulp.watch("./pages/**/*.html").on('change', browserSync.reload);
 }));
-gulp.task('default', gulp.series('prepare', 'watching'));
-gulp.task('build', gulp.series('prepare', 'css:lint', 'js:build', 'css:build', 'html:build'));
+gulp.task('default', gulp.series('watching'));
+gulp.task('build', gulp.series('css:lint', 'js:build', 'css:build', 'html:build'));
