@@ -1,0 +1,77 @@
+/**
+ * SIDEBAR
+ */
+// components
+.sidebar {
+  & > .sidebar-wrapper {
+    background-color: $sidebar-wrapper-background-color;
+    width: $sidebar-wrapper-width;
+    height: 100vh;
+    overflow: hidden;
+
+    & > .sidebar-header {
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      margin: 1rem 0;
+      img {
+        max-width: 100%;
+      }
+    }
+
+    & > .sidebar-menu {
+      display: list-item;
+      padding: .25rem 1rem;
+      margin: 0;
+      & > .sidebar-item {
+        display: flex;
+        align-items: center;
+        border-radius: 0.75rem;
+        margin: 0.25rem 0;
+        background-color: $sidebar-item-background-color;
+        & > .sidebar-link {
+          display: flex;
+          align-items: center;
+          align-content: center;
+          width: 100%;
+          padding: 0.7rem 1rem;
+          text-decoration: none;
+          color: $sidebar-item-color;
+          & > .icon {
+            &.feather {
+              width: 1.1rem;
+              height: 1.1rem;
+            }
+          }
+          & > span {
+            margin-left: .5rem;
+          }
+        }
+        &.active {
+          background: rgb(89,153,252);
+          background: linear-gradient(90deg, rgba(89,153,252,1) 0%, rgba(83,148,250,1) 35%, rgba(128,181,255,1) 100%);
+          box-shadow: 0px 1px 116px -26px rgba(0,0,0,0.76);
+          & > .sidebar-link {
+            color: $sidebar-item-active-color;
+          }
+        }
+        &:hover {
+          background-color: $sidebar-item-hover-background-color;
+        }
+      }
+    }
+  }
+}
+// base
+body.sidebar-fixed {
+  .sidebar {
+    .sidebar-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+  }
+}

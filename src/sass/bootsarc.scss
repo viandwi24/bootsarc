@@ -10,3 +10,19 @@
 
 // variables
 @import "./variables";
+// sidebar
+$sidebar-wrapper-width: 270px;
+$sidebar-wrapper-background-color: white;
+$sidebar-item-color: $gray-600;
+$sidebar-item-background-color: transparent;
+$sidebar-item-hover-background-color: rgba($color: $gray-200, $alpha: 0.75);
+$sidebar-item-active-background-color: $primary;
+$sidebar-item-active-color: $white;
+// main
+$main-margin: 0px 0px 0px $sidebar-wrapper-width;
+$main-padding: 1rem 2rem;
+
+// components
+@import "./components/main";
+@import "./components/icons";
+@import "./components/sidebar";

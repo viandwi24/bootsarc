@@ -6,16 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ app.name }}</title>
     <!-- styles -->
+    <link rel="stylesheet" href="{{ 'css/bootsarc.bootstrap.css'|dist }}">
     <link rel="stylesheet" href="{{ 'css/bootsarc.css'|dist }}">
+    <!-- fonts & icons -->
+    <link rel="stylesheet" href="{{ 'bootstrap-icons/bootstrap-icons.css'|vendor }}">
 </head>
-<body>
-    <div>
-        <a href="/">home</a>
-        <a href="/pages/components/button.html">button</a>
+<body class="sidebar-fixed">
+    <div id="app">
+        <nav class="sidebar sidebar-fixed">
+            <div class="sidebar-wrapper">
+                <div class="sidebar-header">
+                    <a href="{{ 'index.html'|page }}" class="sidebar-brand">
+                        <img src="{{ 'logo/logo.png'|images }}" alt="{{ app.name }}" height="30">
+                    </a>
+                </div>
+                <ul class="sidebar-menu">
+                    <li class="sidebar-item active">
+                        <a class="sidebar-link" href="{{ 'index.html'|page }}">
+                            <i class="icon bi bi-grid"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{ 'index.html'|page }}">
+                            <i class="icon" data-feather="layout"></i>
+                            <span>Layouts</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{ 'index.html'|page }}">
+                            <i class="icon" data-feather="layers"></i>
+                            <span>Components</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{ 'index.html'|page }}">
+                            <i class="icon" data-feather="settings"></i>
+                            <span>Setting</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main class="main">
+            <div>
+                <a href="/pages/index.html">home</a>
+                <a href="/pages/components/button.html">button</a>
+            </div>
+            {% block content %}{% endblock %}
+        </main>
     </div>
-    {% block content %}{% endblock %}
 
+    <!-- fonts & icons -->
+    <script src="{{ 'feather-icons/dist/feather.min.js'|vendor }}"></script>
+    <script>feather.replace()</script>
     <!-- scripts -->
+    <script src="{{ 'js/bootsarc.bootstrap.js'|dist }}"></script>
     <script src="{{ 'js/bootsarc.js'|dist }}"></script>
 </body>
 </html>

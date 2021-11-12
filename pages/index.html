@@ -6,18 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootsarc</title>
     <!-- styles -->
+    <link rel="stylesheet" href="/dist/css/bootsarc.bootstrap.css">
     <link rel="stylesheet" href="/dist/css/bootsarc.css">
+    <!-- fonts & icons -->
+    <link rel="stylesheet" href="/vendors/bootstrap-icons/bootstrap-icons.css">
 </head>
-<body>
-    <div>
-        <a href="/">home</a>
-        <a href="/pages/components/button.html">button</a>
-    </div>
-    
+<body class="sidebar-fixed">
+    <div id="app">
+        <nav class="sidebar sidebar-fixed">
+            <div class="sidebar-wrapper">
+                <div class="sidebar-header">
+                    <a href="/pages/index.html" class="sidebar-brand">
+                        <img src="/assets/images/logo/logo.png" alt="Bootsarc" height="30">
+                    </a>
+                </div>
+                <ul class="sidebar-menu">
+                    <li class="sidebar-item active">
+                        <a class="sidebar-link" href="/pages/index.html">
+                            <i class="icon bi bi-grid"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/pages/index.html">
+                            <i class="icon" data-feather="layout"></i>
+                            <span>Layouts</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/pages/index.html">
+                            <i class="icon" data-feather="layers"></i>
+                            <span>Components</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="/pages/index.html">
+                            <i class="icon" data-feather="settings"></i>
+                            <span>Setting</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main class="main">
+            <div>
+                <a href="/pages/index.html">home</a>
+                <a href="/pages/components/button.html">button</a>
+            </div>
+            
     <h1>WOKWOKW HELLO WORLD!</h1>
 
+        </main>
+    </div>
 
+    <!-- fonts & icons -->
+    <script src="/vendors/feather-icons/dist/feather.min.js"></script>
+    <script>feather.replace()</script>
     <!-- scripts -->
+    <script src="/dist/js/bootsarc.bootstrap.js"></script>
     <script src="/dist/js/bootsarc.js"></script>
 </body>
 </html>
