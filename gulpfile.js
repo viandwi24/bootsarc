@@ -16,6 +16,12 @@ var stylelint       = require('gulp-stylelint');
 var templateData = {
     app: {
         name: 'Bootsarc'
+    },
+    dirs: {
+        page: 'pages',
+        dist: 'dist',
+        vendor: 'vendors',
+        images: 'assets/images'
     }
 }
 var getData = function(file) {
@@ -25,8 +31,8 @@ var getData = function(file) {
     };
 }
 var manageEnv = function(environment) {
-    environment.addFilter('dist', function(url) {
-        return `/dist/${url}`
+    Object.keys(templateData.dirs).forEach(function(key) {
+        environment.addFilter(key, url => `/${templateData.dirs[key]}/${url}`);
     });
     environment.addFilter('slug', function(str) {
         return str && str.replace(/\s/g, '-', str).toLowerCase();
@@ -82,18 +88,19 @@ gulp.task('watching', gulp.series('css:lint', 'js:build', 'css:build', 'html:bui
             baseDir: "./",
             index: "index.html",
         },
-        middleware: function(req, res, next) {
-            if (req.url === '/') {
-                res.writeHead(301, { Location: '/pages/index.html' });
-                res.end();
-            }
-            return next();
-        }
+        // middleware: function(req, res, next) {
+        //     if (req.url === '/') {
+        //         res.writeHead(301, { Location: '/pages/index.html' });
+        //         res.end();
+        //     }
+        //     return next();
+        // }
     });
     gulp.watch("./src/scripts/**/*.js", gulp.series('js:build'));
     gulp.watch("./src/sass/**/*.scss", gulp.series('css:lint', 'css:build'));
     gulp.watch("./src/**/*.+(html|nunjucks)", gulp.series('html:build'));
     gulp.watch("./pages/**/*.html").on('change', browserSync.reload);
+    gulp.watch("./assets/**/*.*").on('change', browserSync.reload);
 }));
 gulp.task('default', gulp.series('watching'));
 gulp.task('build', gulp.series('css:lint', 'js:build', 'css:build', 'html:build'));
