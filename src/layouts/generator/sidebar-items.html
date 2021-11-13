@@ -1,0 +1,26 @@
+{% set sidebarCurrentLoopItemsBaseLabel = '' %}
+{% for item in sidebarCurrentLoopItems %}
+    {% if item.type === 'header' %}
+        <li class="sidebar-item-header">
+            <span>{{ item.label }}</span>
+        </li>
+    {% else %}
+        <li class="sidebar-item {% if item.label === sidebarCurrentLoopItemsBaseLabel + pageTitle %} active {% endif %} {% if item.items %} has-submenu {% endif %}">
+            <a class="sidebar-link" href="{% if item.link %} {{ item.link|page }} {% else %} # {% endif %}">
+                {{ item.icon|safe }}
+                <span>{{ item.label }}</span>
+            </a>
+            {% if item.items %}
+                <ul class="sidebar-submenu">
+                    {% set sidebarCurrentLoopItems = item.items %}
+                    {% set sidebarCurrentLoopItemsBaseLabelTmp = sidebarCurrentLoopItemsBaseLabel %}
+                    {% set sidebarCurrentLoopItemsBaseLabel = sidebarCurrentLoopItemsBaseLabel + ' / ' + item.label %}
+                    {% include "generator/sidebar-items.html" %}
+                    {% set sidebarCurrentLoopItems = sidebarMenuItems %}
+                    {% set sidebarCurrentLoopItemsBaseLabel = sidebarCurrentLoopItemsBaseLabelTmp %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endif %}
+    {% set i = i + 1 %}
+{% endfor %}

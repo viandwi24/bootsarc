@@ -11,7 +11,7 @@
     <!-- fonts & icons -->
     <link rel="stylesheet" href="{{ 'bootstrap-icons/bootstrap-icons.css'|vendor }}">
 </head>
-<body class="sidebar-fixed">
+<body class="auto-init sidebar-fixed">
     <div id="app">
         <nav class="sidebar sidebar-fixed">
             <div class="sidebar-wrapper">
@@ -21,30 +21,9 @@
                     </a>
                 </div>
                 <ul class="sidebar-menu">
-                    <li class="sidebar-item active">
-                        <a class="sidebar-link" href="{{ 'index.html'|page }}">
-                            <i class="icon bi bi-grid"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{ 'index.html'|page }}">
-                            <i class="icon" data-feather="layout"></i>
-                            <span>Layouts</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{ 'index.html'|page }}">
-                            <i class="icon" data-feather="layers"></i>
-                            <span>Components</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{ 'index.html'|page }}">
-                            <i class="icon" data-feather="settings"></i>
-                            <span>Setting</span>
-                        </a>
-                    </li>
+                    {% set sidebarCurrentLoopItems = sidebarMenuItems %}
+                    {% set i = 0 %}
+                    {% include "generator/sidebar-items.html" %}
                 </ul>
             </div>
         </nav>
@@ -59,7 +38,7 @@
 
     <!-- fonts & icons -->
     <script src="{{ 'feather-icons/dist/feather.min.js'|vendor }}"></script>
-    <script>feather.replace()</script>
+    {# <script>feather.replace()</script> #}
     <!-- scripts -->
     <script src="{{ 'js/bootsarc.bootstrap.js'|dist }}"></script>
     <script src="{{ 'js/bootsarc.js'|dist }}"></script>

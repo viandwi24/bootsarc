@@ -1,6 +1,7 @@
 /**
  * SIDEBAR
  */
+//  mixin
 // components
 .sidebar {
   & > .sidebar-wrapper {
@@ -25,13 +26,15 @@
       display: list-item;
       padding: .25rem 1rem;
       margin: 0;
-      & > .sidebar-item {
+      .sidebar-item {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        border-radius: 0.75rem;
         margin: 0.25rem 0;
-        background-color: $sidebar-item-background-color;
+        overflow: hidden;
+        position: relative;
         & > .sidebar-link {
+          transition: all .3s ease;
           display: flex;
           align-items: center;
           align-content: center;
@@ -39,6 +42,8 @@
           padding: 0.7rem 1rem;
           text-decoration: none;
           color: $sidebar-item-color;
+          background-color: $sidebar-item-background-color;
+          border-radius: 0.75rem;
           & > .icon {
             &.feather {
               width: 1.1rem;
@@ -48,18 +53,57 @@
           & > span {
             margin-left: .5rem;
           }
+          &:hover {
+            background-color: $sidebar-item-hover-background-color;
+          }
         }
         &.active {
-          background: rgb(89,153,252);
-          background: linear-gradient(90deg, rgba(89,153,252,1) 0%, rgba(83,148,250,1) 35%, rgba(128,181,255,1) 100%);
-          box-shadow: 0px 1px 116px -26px rgba(0,0,0,0.76);
           & > .sidebar-link {
+            background: $sidebar-item-active-background-color;
+            box-shadow: $sidebar-item-active-box-shadow;
             color: $sidebar-item-active-color;
           }
         }
-        &:hover {
-          background-color: $sidebar-item-hover-background-color;
+        &.has-submenu {
+          & > .sidebar-link {
+            position: relative;
+            &::after {
+              color: $sidebar-item-color;
+              content: '';
+              background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 18L9 12L15 6' stroke='%23636A71' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+              display: block;
+              position: absolute;
+              right: .75rem;
+              width: 20px;
+              height: 20px;
+            }
+          }
         }
+        & > .sidebar-submenu {
+          display: none;
+          flex-direction: column;
+          padding: 0;
+          margin: 0;
+          width: 100%;
+        }
+        $sidebar-item-submenu-open-background-color: $sidebar-item-hover-background-color;
+        &.submenu-open {
+          & > .sidebar-link {
+            background-color: $sidebar-item-submenu-open-background-color;
+            &::after {
+              transform: rotate(-90deg);
+            }
+          }
+          & > .sidebar-submenu {
+            display: flex;
+          }
+        }
+      }
+      & > .sidebar-item-header {
+        color: $gray-700;
+        display: flex;
+        align-items: center;
+        padding: 1.2rem 1rem 0 1rem;
       }
     }
   }

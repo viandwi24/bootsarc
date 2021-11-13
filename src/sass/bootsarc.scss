@@ -16,7 +16,8 @@ $sidebar-wrapper-background-color: white;
 $sidebar-item-color: $gray-600;
 $sidebar-item-background-color: transparent;
 $sidebar-item-hover-background-color: rgba($color: $gray-200, $alpha: 0.75);
-$sidebar-item-active-background-color: $primary;
+$sidebar-item-active-background-color: linear-gradient(90deg, rgba(89,153,252,1) 0%, rgba(83,148,250,1) 35%, rgba(128,181,255,1) 100%);
+$sidebar-item-active-box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.3);
 $sidebar-item-active-color: $white;
 // main
 $main-margin: 0px 0px 0px $sidebar-wrapper-width;
