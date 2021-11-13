@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": "https://github.com/viandwi24/bootsarc",
   "scripts": {
-    "dev": "gulp",
+    "dev": "gulp autoreload",
     "build": "yarn gulp build",
     "css:lint": "gulp css:lint",
     "js:lint": "eslint --ext \".js\" --ignore-path .gitignore .",

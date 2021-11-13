@@ -2,6 +2,7 @@
 
 const path = require('path');
 const fs = require('fs')
+const spawn = require('child_process').spawn;
 
 var gulp            = require('gulp');
 var browserSync     = require('browser-sync').create();
@@ -13,39 +14,28 @@ var data            = require('gulp-data');
 var webpack         = require('webpack-stream');
 var stylelint       = require('gulp-stylelint');
 
-var templateData = {
-    app: {
-        name: 'Bootsarc'
-    },
-    dirs: {
-        page: 'pages',
-        dist: 'dist',
-        vendor: 'vendors',
-        images: 'assets/images'
-    }
-}
-var getData = function(file) {
-    return {
-        ...templateData,
-        file
-    };
-}
-var manageEnv = function(environment) {
-    Object.keys(templateData.dirs).forEach(function(key) {
-        environment.addFilter(key, url => `/${templateData.dirs[key]}/${url}`);
-    });
-    environment.addFilter('slug', function(str) {
-        return str && str.replace(/\s/g, '-', str).toLowerCase();
-    });
-    // environment.addGlobal('globalTitle', 'My global title')
-}
-
 
 // ======================================================
 //                      GULP TASK
 // ======================================================
-gulp.task('html:build', () =>
-    gulp.src('./src/pages/**/*.+(html|nunjucks)')
+gulp.task('html:build', () => {
+    var templateData = {}
+    try { templateData = JSON.parse(fs.readFileSync('./src/templateData.json')); } catch (error) {}
+    var getData = function(file) {
+        return {
+            ...templateData,
+            file
+        };
+    }
+    var manageEnv = function(environment) {
+        Object.keys(templateData.dirs).forEach(function(key) {
+            environment.addFilter(key, url => `/${templateData.dirs[key]}/${url}`);
+        });
+        environment.addFilter('slug', function(str) {
+            return str && str.replace(/\s/g, '-', str).toLowerCase();
+        });
+    }
+    return gulp.src('./src/pages/**/*.+(html|nunjucks)')
         .pipe(data(getData))
         .pipe(nunjucksRender({
             manageEnv,
@@ -53,7 +43,7 @@ gulp.task('html:build', () =>
         }))
         .pipe(gulp.dest('pages'))
         .pipe(browserSync.stream())
-);
+});
 gulp.task('css:build', ()  => 
     gulp.src("./src/sass/*.scss")
         .pipe(sass({outputStyle: 'compressed'}))
@@ -99,8 +89,23 @@ gulp.task('watching', gulp.series('css:lint', 'js:build', 'css:build', 'html:bui
     gulp.watch("./src/scripts/**/*.js", gulp.series('js:build'));
     gulp.watch("./src/sass/**/*.scss", gulp.series('css:lint', 'css:build'));
     gulp.watch("./src/**/*.+(html|nunjucks)", gulp.series('html:build'));
+    gulp.watch("./src/templateData.json", gulp.series('html:build'));
     gulp.watch("./pages/**/*.html").on('change', browserSync.reload);
     gulp.watch("./assets/**/*.*").on('change', browserSync.reload);
 }));
+
+// ======================================================
+//                      GULP COMMAND
+// ======================================================
 gulp.task('default', gulp.series('watching'));
 gulp.task('build', gulp.series('css:lint', 'js:build', 'css:build', 'html:build'));
+gulp.task('autoreload', function() {
+    var p;
+    gulp.watch('gulpfile.js', spawnChildren);
+    spawnChildren();
+    function spawnChildren(callback) {
+        if(p) { p.kill(); }
+        p = spawn('gulp', ['default'], { stdio: 'inherit' });
+        if(callback) { callback(); }
+    }
+});
