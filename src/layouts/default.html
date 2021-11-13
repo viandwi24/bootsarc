@@ -11,22 +11,11 @@
     <!-- fonts & icons -->
     <link rel="stylesheet" href="{{ 'bootstrap-icons/bootstrap-icons.css'|vendor }}">
 </head>
-<body class="auto-init sidebar-fixed">
-    <div id="app">
-        <nav class="sidebar sidebar-fixed">
-            <div class="sidebar-wrapper">
-                <div class="sidebar-header">
-                    <a href="{{ 'index.html'|page }}" class="sidebar-brand">
-                        <img src="{{ 'logo/logo.png'|images }}" alt="{{ app.name }}" height="30">
-                    </a>
-                </div>
-                <ul class="sidebar-menu">
-                    {% set sidebarCurrentLoopItems = sidebarMenuItems %}
-                    {% set i = 0 %}
-                    {% include "generator/sidebar-items.html" %}
-                </ul>
-            </div>
-        </nav>
+<body class="auto-init {% if layout %}{{ layout }}{% endif %}">
+    <div id="app" class="app">
+        {% block sidebar %}
+            {% include "sidebar-default.html" %}
+        {% endblock %}
         <main class="main">
             <div>
                 <a href="/pages/index.html">home</a>

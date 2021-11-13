@@ -1,7 +1,10 @@
 {% extends "default.html" %}
 
 {% set pageTitle = "Sidebar Not Fixed" %}
+{% set layout = "" %}
 
 {% block content %}
-    <h1>Layout / Sidebar Not Fixed</h1>
+    {% for item in range(0, 30) %}
+        <h1>Layout / Sidebar Not Fixed</h1>
+    {% endfor %}
 {% endblock %}

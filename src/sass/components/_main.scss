@@ -1,10 +1,28 @@
 /**
  * MAIN
  */
+// mixin
+@import "../mixins/scrollbar";
 // base
-body.sidebar-fixed {
-  .main {
-    margin: $main-margin;
-    padding: $main-padding;
+body {
+  // scrollbar
+  @include scrollbar;
+  
+  // layout - default
+  .app {
+    display: flex;
+    .main {
+      padding: $main-padding;
+    }
+  }
+
+  // layout - sidebar fixed
+  &.sidebar-fixed {
+    .app {
+      .main {
+        margin: $main-margin;
+        padding: $main-padding;
+      }
+    }
   }
 }

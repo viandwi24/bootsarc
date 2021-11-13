@@ -1,0 +1,43 @@
+<nav class="sidebar scroll-only-menu">
+    <div class="sidebar-wrapper">
+        <div class="sidebar-header">
+            <a href="{{ 'index.html'|page }}" class="sidebar-brand">
+                <img src="{{ 'logo/logo.png'|images }}" alt="{{ app.name }}" height="30">
+            </a>
+        </div>
+        <div class="flex-fill d-flex flex-column justify-content-between">
+            <ul class="sidebar-menu flex-fill">
+                {% set sidebarCurrentLoopItems = sidebarMenuItems %}
+                {% set i = 0 %}
+                {% include "generator/sidebar-items.html" %}
+            </ul>
+            <div class="sidebar-avatar-box">
+                <div class="sidebar-avatar-box__wrapper">
+                    <div class="sidebar-avatar-box__avatar-wrapper">
+                        <img src="{{ 'avatars/2.png'|images }}" alt="Avatar" class="rounded-circle" height="42" width="42">
+                    </div>
+                    <div class="sidebar-avatar-box__user-wrapper">
+                        <div class="sidebar-avatar-box__user__name">Alfian Dwi</div>
+                        <div class="sidebar-avatar-box__user__email">viandwicyber@gmail.com</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+{# <nav class="sidebar">
+    <div class="sidebar-wrapper">
+        <div class="sidebar-header">
+            <a href="{{ 'index.html'|page }}" class="sidebar-brand">
+                <img src="{{ 'logo/logo.png'|images }}" alt="{{ app.name }}" height="30">
+            </a>
+        </div>
+        <div class="d-flex flex-column justify-content-between flex-fill">
+            <ul class="sidebar-menu">
+                {% set sidebarCurrentLoopItems = sidebarMenuItems %}
+                {% set i = 0 %}
+                {% include "generator/sidebar-items.html" %}
+            </ul>
+        </div>
+    </div>
+</nav> #}

@@ -1,7 +1,10 @@
 {% extends "default.html" %}
 
 {% set pageTitle = "Dashboard" %}
+{% set layout = "sidebar-fixed" %}
 
 {% block content %}
-    <h1>WOKWOKW HELLO WORLD!</h1>
+    {% for item in range(0, 20) %}
+        <h1>Dashboard</h1>
+    {% endfor %}
 {% endblock %}

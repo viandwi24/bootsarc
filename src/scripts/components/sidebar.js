@@ -38,7 +38,7 @@ export default class Sidebar {
                 { height: submenu.scrollHeight + 'px' },
                 { height: 0 }
               ],{
-                duration: 500,
+                duration: 400,
                 easing: 'ease-in'
               }).onfinish = () => {
                 item.classList.remove('submenu-open')
@@ -49,7 +49,7 @@ export default class Sidebar {
                 { height: 0 },
                 { height: submenu.scrollHeight + 'px' }
               ],{
-                duration: 500,
+                duration: 400,
                 easing: 'ease-out'
               })
             }
