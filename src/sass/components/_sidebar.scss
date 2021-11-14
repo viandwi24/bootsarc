@@ -150,7 +150,6 @@ body.sidebar-fixed {
       position: fixed;
       overflow-y: auto;
       height: 100vh;
-      min-height: 100vh;
 
       // scrollbar
       @include scrollbar;
