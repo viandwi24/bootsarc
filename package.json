@@ -6,6 +6,7 @@
   "license": "MIT",
   "repository": "https://github.com/viandwi24/bootsarc",
   "scripts": {
+    "start": "node src/demo.js",
     "dev": "gulp autoreload",
     "build": "yarn gulp build",
     "css:lint": "gulp css:lint",
@@ -39,6 +40,7 @@
   "dependencies": {
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.1.3",
-    "feather-icons": "^4.28.0"
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15"
   }
 }
