@@ -53,18 +53,26 @@
     },
     {
       "type": "item",
-      "label": "Widget",
-      "icon": "<i class=\"icon\" data-feather=\"package\"></i>"
-    },
-    {
-      "type": "item",
       "label": "Bootstrap Component",
-      "icon": "<i class=\"icon bi bi-bootstrap\"></i>"
+      "icon": "<i class=\"icon bi bi-bootstrap\"></i>",
+      "items": [
+        {
+          "type": "item",
+          "label": "Button",
+          "icon": "<i class=\"icon\" data-feather=\"circle\"></i>",
+          "link": "components/bootstrap-button.html"
+        }
+      ]
     },
     {
       "type": "item",
       "label": "Extra Component",
       "icon": "<i class=\"icon\" data-feather=\"layers\"></i>"
+    },
+    {
+      "type": "item",
+      "label": "Widget",
+      "icon": "<i class=\"icon\" data-feather=\"package\"></i>"
     },
     {
       "type": "header",
