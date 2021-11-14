@@ -1,5 +1,7 @@
 @mixin scrollbar {
   &::-webkit-scrollbar{
+    position: fixed;
+    overflow: auto;
     width: 10px;
   }
   &::-webkit-scrollbar-track-piece{

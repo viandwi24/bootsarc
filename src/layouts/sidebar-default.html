@@ -3,9 +3,10 @@
         <div class="sidebar-header">
             <a href="{{ 'index.html'|page }}" class="sidebar-brand">
                 <img src="{{ 'logo/logo.png'|images }}" alt="{{ app.name }}" height="30">
+                <span>Bootsarc</span>
             </a>
         </div>
-        <div class="flex-fill d-flex flex-column justify-content-between">
+        <div class="flex-fill d-flex flex-column justify-content-between sidebar-max-height">
             <ul class="sidebar-menu flex-fill">
                 {% set sidebarCurrentLoopItems = sidebarMenuItems %}
                 {% set i = 0 %}

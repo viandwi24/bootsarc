@@ -13,6 +13,7 @@ body {
     display: flex;
     .main {
       padding: $main-padding;
+      flex: 1 1 auto;
     }
   }
 

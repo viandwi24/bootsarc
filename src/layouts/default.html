@@ -17,11 +17,9 @@
             {% include "sidebar-default.html" %}
         {% endblock %}
         <main class="main">
-            <div>
-                <a href="/pages/index.html">home</a>
-                <a href="/pages/components/button.html">button</a>
+            <div class="container-fluid">
+                {% block content %}{% endblock %}
             </div>
-            {% block content %}{% endblock %}
         </main>
     </div>
 

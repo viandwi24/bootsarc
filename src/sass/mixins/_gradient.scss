@@ -1,0 +1,5 @@
+@mixin bg-gradient($color1, $color2, $direction, $time, $size) {
+  background: linear-gradient($direction, $color2, $color1);
+  background-size: $size;
+  animation: sidebar-item $time ease-in infinite;
+}

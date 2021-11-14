@@ -3,6 +3,7 @@
  */
 // mixin
 @import "../mixins/scrollbar";
+@import "../mixins/gradient";
 // components
 .sidebar {
   & > .sidebar-wrapper {
@@ -26,8 +27,23 @@
       align-items: center;
       align-content: center;
       margin: 1rem 0;
-      img {
-        max-width: 100%;
+      .sidebar-brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: $font-size-lg;
+        font-weight: bold;
+        img {
+          max-width: 100%;
+        }
+        span {
+          margin-left: .5rem;
+        }
+        text-decoration: none;
+        &:hover {
+          text-decoration: none;
+          background-color: inherit;
+        }
       }
     }
 
@@ -69,7 +85,13 @@
         }
         &.active {
           & > .sidebar-link {
-            background: $sidebar-item-active-background-color;
+            @include bg-gradient(
+              $sidebar-item-active-background-color,
+              $sidebar-item-active-secondary-background-color,
+              $sidebar-item-active-background-gradient-direction,
+              $sidebar-item-active-background-gradient-time,
+              $sidebar-item-active-background-size
+            );
             box-shadow: $sidebar-item-active-box-shadow;
             color: $sidebar-item-active-color;
           }
@@ -108,6 +130,9 @@
             display: list-item;
           }
         }
+        &:last-child{
+          margin-bottom: 0;
+        }
       }
       & > .sidebar-item-header {
         color: $gray-700;
@@ -129,6 +154,10 @@ body.sidebar-fixed {
 
       // scrollbar
       @include scrollbar;
+    }
+    .sidebar-max-height {
+      max-height: 100%;
+      overflow-y: hidden;
     }
   }
 }
@@ -177,4 +206,20 @@ body.sidebar-fixed {
       }
     }
   }
+}
+// animation
+@-webkit-keyframes sidebar-item {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@-moz-keyframes sidebar-item {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes sidebar-item {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }

@@ -22,14 +22,28 @@
       "items": [
         {
           "type": "item",
-          "label": "Sidebar Not Fixed",
-          "icon": "<i class=\"icon\" data-feather=\"layout\"></i>",
-          "link": "layouts/sidebar-not-fixed.html"
+          "label": "Sidebar Layout",
+          "icon": "<i class=\"icon\" data-feather=\"sidebar\"></i>",
+          "items": [
+            {
+              "type": "item",
+              "label": "Sidebar Not Fixed",
+              "icon": "<i class=\"icon\" data-feather=\"circle\"></i>",
+              "link": "layouts/sidebar-not-fixed.html"
+            },
+            {
+              "type": "item",
+              "label": "Sidebar Full Scroll",
+              "icon": "<i class=\"icon\" data-feather=\"circle\"></i>",
+              "link": "layouts/sidebar-full-scroll.html"
+            }
+          ]
         },
         {
           "type": "item",
-          "label": "Top Navigation",
-          "icon": "<i class=\"icon\" data-feather=\"layout\"></i>"
+          "label": "With Footer",
+          "icon": "<i class=\"icon rotate--90\" data-feather=\"sidebar\"></i>",
+          "link": "layouts/sidebar-not-fixed.html"
         }
       ]
     },
