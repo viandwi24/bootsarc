@@ -1,0 +1,15 @@
+// mixins
+@import "./../mixins/gradient";
+// componets
+.page-header {
+  .page-title {
+    font-size: $font-size-2xl;
+    @include bg-gradient($primary, $secondary, to right, $animation-gradient-time, 200% auto);
+
+    color: color-contrast($body-bg);
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  } 
+}

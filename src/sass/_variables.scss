@@ -39,7 +39,7 @@ $grays: (
 // scss-docs-start color-variables
 $blue:    #5494FB !default;
 $indigo:  #6610f2 !default;
-$purple:  #6f42c1 !default;
+$purple:  #5143FA !default;
 $pink:    #d63384 !default;
 $red:     #DE3F5F !default;
 $orange:  #FC8E70 !default;
@@ -69,7 +69,7 @@ $colors: (
 
 // scss-docs-start theme-color-variables
 $primary:       $blue !default;
-$secondary:     $gray-600 !default;
+$secondary:     $purple !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
@@ -591,6 +591,9 @@ $font-size-xs:                $font-size-base * .725 !default;
 $font-size-sm:                $font-size-base * .875 !default;
 $font-size-lg:                $font-size-base * 1.25 !default;
 $font-size-xl:                $font-size-base * 1.5 !default;
+$font-size-2xl:               $font-size-base * 1.875 !default;
+$font-size-3xl:               $font-size-base * 2 !default;
+$font-size-4xl:               $font-size-base * 2.25 !default;
 
 $font-weight-lighter:         lighter !default;
 $font-weight-light:           300 !default;

@@ -127,7 +127,7 @@
             }
           }
           & > .sidebar-submenu {
-            display: list-item;
+            display: flex;
           }
         }
         &:last-child{
