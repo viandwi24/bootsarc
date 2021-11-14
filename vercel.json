@@ -11,5 +11,10 @@
             "src": "/(.*)",
             "dest": "/"
         }
+    ],
+    "rewrites": [
+        { "source": "/pages/(.*)", "destination": "/pages" },
+        { "source": "/dist/(.*)", "destination": "/dist" },
+        { "source": "/assets/(.*)", "destination": "/assets" }
     ]
 }
