@@ -1,5 +1,11 @@
-# BOOTSARC
-Free Bootstrap 5 Modern Admin Template With Fully Customizable.
+# [Bootsarc - Bootstrap 5 Modern Admin Dashboard](https://github.com/viandwi24/bootsarc)
+
+![GitHub repo size](https://img.shields.io/github/repo-size/viandwi24/bootsarc)
+[![License](https://img.shields.io/github/license/viandwi24/bootsarc.svg)](LICENSE)
+![GitHub Repo stars](https://img.shields.io/github/stars/viandwi24/bootsarc?label=repo%20stars)
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/viandwi24/bootsarc)
+
+**BOOTSARC** is a Modern Design Administration Template. Based on Bootstrap 5 and Other Libraries. Free and Open Source Project Made with Love.
 
 ![Preview](https://github.com/viandwi24/bootsarc/blob/main/assets/images/screenshots/preview.gif?raw=true)
 
@@ -55,3 +61,7 @@ http://localhost:3000/pages/index.html
 ```bash
 /path/to/bootsarc/src/
 ```
+
+## License
+Bootsarc is an open source project by [viandwi24](https://www.github.com/viandwi24) that is licensed under [MIT](LICENSE).
+viandwi24 reserves the right to change the license of future releases.
