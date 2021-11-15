@@ -13,6 +13,7 @@ var nunjucksRender  = require('gulp-nunjucks-render');
 var data            = require('gulp-data');
 var webpack         = require('webpack-stream');
 var stylelint       = require('gulp-stylelint');
+var beautify        = require('gulp-beautify');
 
 
 // ======================================================
@@ -68,6 +69,29 @@ gulp.task('css:lint', () =>
             debug: true
         }))
 );
+gulp.task('html:format', () => {
+    return gulp.src('./pages/**/*.html')
+        .pipe(beautify.html({
+            "indent_size": "2",
+            "indent_char": " ",
+            "max_preserve_newlines": "-1",
+            "preserve_newlines": false,
+            "keep_array_indentation": false,
+            "break_chained_methods": false,
+            "indent_scripts": "normal",
+            "brace_style": "collapse",
+            "space_before_conditional": true,
+            "unescape_strings": false,
+            "jslint_happy": false,
+            "end_with_newline": true,
+            "wrap_line_length": "0",
+            "indent_inner_html": false,
+            "comma_first": false,
+            "e4x": true,
+            "indent_empty_lines": false
+        }))
+        .pipe(gulp.dest('./pages'))
+})
 gulp.task('watching', gulp.series('css:lint', 'js:build', 'css:build', 'html:build', function() {
     browserSync.init({
         open: false,
@@ -98,7 +122,7 @@ gulp.task('watching', gulp.series('css:lint', 'js:build', 'css:build', 'html:bui
 //                      GULP COMMAND
 // ======================================================
 gulp.task('default', gulp.series('watching'));
-gulp.task('build', gulp.series('css:lint', 'js:build', 'css:build', 'html:build'));
+gulp.task('build', gulp.series('css:lint', 'js:build', 'css:build', 'html:build', 'html:format'));
 gulp.task('autoreload', function() {
     var p;
     gulp.watch('gulpfile.js', spawnChildren);
