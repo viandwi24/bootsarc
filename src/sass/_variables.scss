@@ -7,6 +7,7 @@
 
 // scss-docs-start gray-color-variables
 $white:    #FEFFFF !default;
+$gray-50:  #FEFFFF !default;
 $gray-100: #f8f9fa !default;
 $gray-150: #f5f6f8 !default;
 $gray-200: #e9ecef !default;
@@ -373,15 +374,16 @@ $gradient: linear-gradient(180deg, rgba($white, .15), rgba($white, 0)) !default;
 // You can add more entries to the $spacers map, should you need more variation.
 
 // scss-docs-start spacer-variables-maps
-$spacer: 1rem !default;
+$spacer: .25rem !default;
 $spacers: (
-  0: 0,
-  1: $spacer * .25,
-  2: $spacer * .5,
-  3: $spacer,
-  4: $spacer * 1.5,
-  5: $spacer * 3,
+  0: 0
 ) !default;
+
+@for $i from 1 through 10 {
+  $spacers: map-merge($spacers, (
+    $i: ($i * $spacer)
+  )); 
+}
 
 $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) !default;
 // scss-docs-end spacer-variables-maps
@@ -403,6 +405,7 @@ $position-values: (
 // Settings for the `<body>` element.
 
 $body-bg:                   $gray-150 !default;
+$body-secondary-bg:         $gray-50 !default;
 $body-color:                $gray-900 !default;
 $body-text-align:           null !default;
 
@@ -587,6 +590,9 @@ $font-family-code:            var(--#{$variable-prefix}font-monospace) !default;
 // $font-size-base affects the font size of the body text
 $font-size-root:              null !default;
 $font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+$font-size-4xs:               $font-size-base * .325 !default;
+$font-size-3xs:               $font-size-base * .475 !default;
+$font-size-2xs:               $font-size-base * .5 !default;
 $font-size-xs:                $font-size-base * .725 !default;
 $font-size-sm:                $font-size-base * .875 !default;
 $font-size-lg:                $font-size-base * 1.25 !default;
@@ -598,6 +604,7 @@ $font-size-4xl:               $font-size-base * 2.25 !default;
 $font-weight-lighter:         lighter !default;
 $font-weight-light:           300 !default;
 $font-weight-normal:          400 !default;
+$font-weight-medium:          500 !default;
 $font-weight-bold:            700 !default;
 $font-weight-bolder:          bolder !default;
 
@@ -1534,17 +1541,19 @@ $figure-caption-color:              $gray-600 !default;
 // Breadcrumbs
 
 // scss-docs-start breadcrumb-variables
-$breadcrumb-font-size:              null !default;
-$breadcrumb-padding-y:              0 !default;
-$breadcrumb-padding-x:              0 !default;
+$breadcrumb-font-size:              $font-size-sm !default;
+$breadcrumb-padding-y:              .5rem !default;
+$breadcrumb-padding-x:              1rem !default;
 $breadcrumb-item-padding-x:         .5rem !default;
 $breadcrumb-margin-bottom:          1rem !default;
-$breadcrumb-bg:                     null !default;
+$breadcrumb-bg:                     $body-secondary-bg !default;
 $breadcrumb-divider-color:          $gray-600 !default;
-$breadcrumb-active-color:           $gray-600 !default;
-$breadcrumb-divider:                quote("/") !default;
+$breadcrumb-active-color:           $gray-700 !default;
+$breadcrumb-divider-font-size:      $font-size-2xs !default;
+$breadcrumb-divider-font-family:    bootstrap-icons !default;
+$breadcrumb-divider:                quote("\f285") !default;
 $breadcrumb-divider-flipped:        $breadcrumb-divider !default;
-$breadcrumb-border-radius:          null !default;
+$breadcrumb-border-radius:          $border-radius-lg !default;
 // scss-docs-end breadcrumb-variables
 
 // Carousel

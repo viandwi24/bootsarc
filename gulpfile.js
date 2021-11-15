@@ -47,7 +47,15 @@ gulp.task('html:build', () => {
 });
 gulp.task('css:build', ()  => 
     gulp.src("./src/sass/*.scss")
-        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(sass({}))
+        .pipe(gulp.dest("dist/css/"))
+        .pipe(browserSync.stream())
+);
+gulp.task('css:build:prod', ()  => 
+    gulp.src("./src/sass/*.scss")
+        .pipe(sass({
+            outputStyle: 'compressed'
+        }))
         .pipe(autoprefixer())
 		.pipe(sourcemaps.write('.'))
         .pipe(gulp.dest("dist/css/"))
@@ -122,7 +130,7 @@ gulp.task('watching', gulp.series('css:lint', 'js:build', 'css:build', 'html:bui
 //                      GULP COMMAND
 // ======================================================
 gulp.task('default', gulp.series('watching'));
-gulp.task('build', gulp.series('css:lint', 'js:build', 'css:build', 'html:build', 'html:format'));
+gulp.task('build', gulp.series('css:lint', 'js:build', 'css:build:prod', 'html:build', 'html:format'));
 gulp.task('autoreload', function() {
     var p;
     gulp.watch('gulpfile.js', spawnChildren);

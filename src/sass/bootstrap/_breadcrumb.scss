@@ -1,15 +1,26 @@
+$breadcrumb-color: $gray-500;
+$breadcrumb-hover-color: $breadcrumb-active-color;
+$breadcrumb-link-transition: all 0.2s ease-in-out;
+
 .breadcrumb {
+  @include border-radius($border-radius-lg);
   display: flex;
   flex-wrap: wrap;
   padding: $breadcrumb-padding-y $breadcrumb-padding-x;
-  margin-bottom: $breadcrumb-margin-bottom;
   @include font-size($breadcrumb-font-size);
   list-style: none;
   background-color: $breadcrumb-bg;
+  margin-bottom: 0;
   @include border-radius($breadcrumb-border-radius);
+
+  &.bg-transparent {
+    background-color: transparent;
+  }
 }
 
 .breadcrumb-item {
+  display: flex;
+  align-items: center;
   // The separator between breadcrumbs (by default, a forward-slash: "/")
   + .breadcrumb-item {
     padding-left: $breadcrumb-item-padding-x;
@@ -18,7 +29,32 @@
       float: left; // Suppress inline spacings and underlining of the separator
       padding-right: $breadcrumb-item-padding-x;
       color: $breadcrumb-divider-color;
+      @include font-size($breadcrumb-divider-font-size);
+      font-family: $breadcrumb-divider-font-family;
       content: var(--#{$variable-prefix}breadcrumb-divider, escape-svg($breadcrumb-divider)) #{"/* rtl:"} var(--#{$variable-prefix}breadcrumb-divider, escape-svg($breadcrumb-divider-flipped)) #{"*/"};
+    }
+  }
+
+  a {
+    transition: $breadcrumb-link-transition;
+    text-decoration: none;
+    color: $breadcrumb-color;
+    &:hover {
+      color: $breadcrumb-hover-color;
+    }
+  }
+
+  &.breadcrumb-dot {
+    &::before {
+      font-family: bootstrap-icons;
+      content: "\f287 \f287 \f287";
+      @include font-size($font-size-4xs);
+      letter-spacing: .15rem;
+      color: $gray-500;
+      background: $gray-300;
+      padding: .25rem .5rem;
+      padding-right: .35rem;
+      @include border-radius($border-radius-lg);
     }
   }
 
