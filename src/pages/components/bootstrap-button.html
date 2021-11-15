@@ -6,5 +6,23 @@
 {% set layout = "sidebar-fixed" %}
 
 {% block content %}
-    {{ page.header(pageTitle) }}
+    {%
+        set breadcrumbItems = [
+            { text: "Dashboard", home: true },
+            { text: "Bootstrap Component" },
+            { text: "Button", active: true }
+        ]
+    %}
+    <div class="page-header">
+        <div class="d-flex justify-content-between">
+            <h1 class="page-title">{{ pageTitle|safe }}</h1>
+        </div>
+        <div class="page-detail d-flex">
+            {{ page.breadcrumb(breadcrumbItems) }}
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="content-wrapper">
+        </div>
+    </div>
 {% endblock %}

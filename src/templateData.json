@@ -58,6 +58,12 @@
       "items": [
         {
           "type": "item",
+          "label": "Breadcrumb",
+          "icon": "<i class=\"icon\" data-feather=\"circle\"></i>",
+          "link": "components/bootstrap-breadcrumb.html"
+        },
+        {
+          "type": "item",
           "label": "Button",
           "icon": "<i class=\"icon\" data-feather=\"circle\"></i>",
           "link": "components/bootstrap-button.html"

@@ -1,6 +1,103 @@
+/*!
+ * Bootstrap v5.1.3 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
 // font
 @import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap');
 
-// bootstrap
-@import "./bootstrap/bootstrap";
+// scss-docs-start import-stack
+// Configuration
+@import "functions";
+
+// Variables
+@import "variables";
+// animation
+$animation-gradient-time: 10s;
+// main
+
+// sidebar
+$sidebar-wrapper-width: 270px;
+$sidebar-wrapper-background-color: white;
+$sidebar-item-color: $gray-600;
+$sidebar-item-background-color: transparent;
+$sidebar-item-hover-background-color: rgba($color: $gray-200, $alpha: 0.75);
+$sidebar-item-submenu-open-background-color: $sidebar-item-hover-background-color;
+// $sidebar-item-active-background-color: linear-gradient(90deg, rgba(89,153,252,1) 0%, rgba(83,148,250,1) 35%, rgba(128,181,255,1) 100%);
+$sidebar-item-active-background-color: $primary;
+$sidebar-item-active-background-size: 400% 400%;
+$sidebar-item-active-secondary-background-color: $secondary;
+$sidebar-item-active-background-gradient-direction: 270deg;
+$sidebar-item-active-background-gradient-time: $animation-gradient-time;
+$sidebar-item-active-box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.3);
+$sidebar-item-active-color: $white;
+// main
+$main-margin: 0px 0px 0px $sidebar-wrapper-width;
+$main-padding: 2rem 2rem;
+
+// Mixins
+@import "mixins";
+
+// Utilities
+@import "utilities";
+
+// Layout & components
+@import "root";
+@import "components/reboot";
+@import "components/type";
+@import "components/images";
+@import "components/containers";
+@import "components/grid";
+@import "components/tables";
+@import "components/forms";
+@import "components/buttons";
+@import "components/transitions";
+@import "components/dropdown";
+@import "components/button-group";
+@import "components/nav";
+@import "components/navbar";
+@import "components/card";
+@import "components/accordion";
+@import "components/breadcrumb";
+@import "components/pagination";
+@import "components/badge";
+@import "components/alert";
+@import "components/progress";
+@import "components/list-group";
+@import "components/close";
+@import "components/toasts";
+@import "components/modal";
+@import "components/tooltip";
+@import "components/popover";
+@import "components/carousel";
+@import "components/spinners";
+@import "components/offcanvas";
+@import "components/placeholders";
+
+// Bootsarc components
+@import "components/main";
+@import "components/icons";
+@import "components/sidebar";
+@import "components/page";
+
+// Helpers
+@import "helpers";
+
+// Utilities
+@import "utilities/api";
+
+// Bootsarc Utilities
+@mixin create-rotate($deg: 0) {
+  transform: rotate(#{$deg}deg);
+}
+$rotates: 90, 180, 270, 360, -90, -180, -270, -360;
+@each $rotate in $rotates {
+  .rotate-#{$rotate} {
+    @include create-rotate($rotate);
+  }
+}
+
+// scss-docs-end import-stack

@@ -1,12 +1,33 @@
-{% macro header(text) %}
-    <div class="page-header">
-        <h1 class="page-title">{{ text|safe }}</h1>
+{% macro header(pageTitle, breadcrumbItems) %}
+    <div class="page-header d-flex justify-content-between">
+        <h1 class="page-title">{{ pageTitle|safe }}</h1>
+    </div>
+{% endmacro %}
+
+{% macro breadcrumb(breadcrumbItems) %}
+    {% if breadcrumbItems %}
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Library</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Data</li>
+                {% for item in breadcrumbItems %}
+                    {% if item.active %}
+                        <li class="breadcrumb-item active" aria-current="page">{{ item.text }}</li>
+                    {% elif item.link or item.home %}
+                        {% set link = '' %}
+                        {% if item.link %}
+                            {% if item.home %}
+                                {% set link = '/pages/index.html' %}
+                            {% else %}
+                                {% set link = item.link %}
+                            {% endif %}
+                        {% endif %}
+                        <li class="breadcrumb-item">
+                            <a href="{{ link }}">{{ item.text }}</a>
+                        </li>
+                    {% else %}
+                        <li class="breadcrumb-item" aria-current="page">{{ item.text }} </li>
+                    {% endif %}
+                {% endfor %}
             </ol>
         </nav>
-    </div>
+    {% endif %}
 {% endmacro %}

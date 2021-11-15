@@ -21,6 +21,7 @@ $breadcrumb-link-transition: all 0.2s ease-in-out;
 .breadcrumb-item {
   display: flex;
   align-items: center;
+  color: $breadcrumb-color;
   // The separator between breadcrumbs (by default, a forward-slash: "/")
   + .breadcrumb-item {
     padding-left: $breadcrumb-item-padding-x;

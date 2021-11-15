@@ -15,6 +15,11 @@ var webpack         = require('webpack-stream');
 var stylelint       = require('gulp-stylelint');
 var beautify        = require('gulp-beautify');
 
+// 
+const scssPaths = [
+    "./src/sass/bootsarc.bootstrap.scss"
+];
+
 
 // ======================================================
 //                      GULP TASK
@@ -46,13 +51,13 @@ gulp.task('html:build', () => {
         .pipe(browserSync.stream())
 });
 gulp.task('css:build', ()  => 
-    gulp.src("./src/sass/*.scss")
+    gulp.src(scssPaths)
         .pipe(sass({}))
         .pipe(gulp.dest("dist/css/"))
         .pipe(browserSync.stream())
 );
 gulp.task('css:build:prod', ()  => 
-    gulp.src("./src/sass/*.scss")
+    gulp.src(scssPaths)
         .pipe(sass({
             outputStyle: 'compressed'
         }))
@@ -68,7 +73,7 @@ gulp.task('js:build', () =>
         .pipe(browserSync.stream())
 );
 gulp.task('css:lint', () =>
-    gulp.src('./src/sass/*.scss')
+    gulp.src(scssPaths)
         .pipe(stylelint({
             failAfterError: true,
             reporters: [

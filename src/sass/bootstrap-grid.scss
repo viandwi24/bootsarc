@@ -20,8 +20,8 @@ $include-column-box-sizing: true !default;
 
 @import "root";
 
-@import "containers";
-@import "grid";
+@import "components/containers";
+@import "components/grid";
 
 @import "utilities";
 // Only use the utilities we need
