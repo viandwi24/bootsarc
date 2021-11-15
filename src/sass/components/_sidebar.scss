@@ -31,7 +31,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: $font-size-xl;
+        @include font-size($font-size-xl);
         font-weight: bold;
         img {
           max-width: 100%;
@@ -196,10 +196,10 @@ body.sidebar-fixed {
           padding-left: .5rem;
           flex: 1 1 auto;
           .sidebar-avatar-box__user__name {
-            font-size: $font-size-sm;
+            @include font-size($font-size-sm);
           }
           .sidebar-avatar-box__user__email {
-            font-size: $font-size-xs;
+            @include font-size($font-size-xs);
             color: $text-muted;
             overflow: hidden;
             text-overflow: ellipsis;
