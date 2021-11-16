@@ -1,0 +1,281 @@
+{% extends "default.html" %}
+
+{% import "components/page.html" as page %}
+
+{% set pageTitle = "Card" %}
+{% set layout = "sidebar-fixed" %}
+
+{% block content %}
+    {%
+        set breadcrumbItems = [
+            { text: "Dashboard", home: true },
+            { text: "Bootstrap Component" },
+            { text: "Card", active: true }
+        ]
+    %}
+    <div class="page-header">
+        <div class="d-flex justify-content-between">
+            <h1 class="page-title">{{ pageTitle|safe }}</h1>
+        </div>
+        <div class="page-detail d-flex">
+            {{ page.breadcrumb(breadcrumbItems) }}
+        </div>
+    </div>
+    <div class="page-content">
+        <!-- Basic card section start -->
+        <section id="content-types">
+            <div class="row">
+                <div class="col-xl-4 col-md-6 col-sm-12">
+                    <div class="card mb-4">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <h4 class="card-title">Card With Header And Footer</h4>
+                                <p class="card-text">
+                                    Gummies bonbon apple pie fruitcake icing biscuit apple pie jelly-o sweet roll. Toffee
+                                    sugar plum sugar plum jelly-o jujubes bonbon dessert carrot cake.
+                                </p>
+                            </div>
+                            <img class="img-fluid w-100" src="{{ 'photos/theregisti-ziSzilQLSOM-unsplash.jpg'|images }}" alt="Card image cap">
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <span>Card Footer</span>
+                            <button class="btn btn-light-primary">Read More</button>
+                        </div>
+                    </div>
+                    <div class="card collapse-icon accordion-icon-rotate">
+                        <div class="card-header">
+                            <h1 class="card-title pl-1">Accordion</h1>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="accordion" id="cardAccordion">
+                                    {% for i in range(1, 5) %}
+                                        <div class="card">
+                                            <div class="card-header" id="heading{{i}}" data-bs-toggle="collapse" data-bs-target="#collapse{{i}}" aria-expanded="false" aria-controls="collapse{{i}}" role="button">
+                                                <span class="collapsed collapse-title">Accordion Item {{i}}</span>
+                                            </div>
+                                            <div id="collapse{{i}}" class="collapse pt-1" aria-labelledby="heading{{i}}" data-parent="#cardAccordion">
+                                                <div class="card-body">
+                                                    Cheesecake muffin cupcake dragée lemon drops tiramisu cake gummies chocolate
+                                                    cake. Marshmallow tart
+                                                    croissant. Tart dessert tiramisu marzipan lollipop lemon drops.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12">
+                    <div class="card mb-4">
+                        <div class="card-content">
+                            <img src="{{ 'photos/theregisti-ziSzilQLSOM-unsplash.jpg'|images }}" class="card-img-top img-fluid"
+                                alt="singleminded">
+                            <div class="card-body">
+                                <h5 class="card-title">Be Single Minded</h5>
+                                <p class="card-text">
+                                    Chocolate sesame snaps apple pie danish cupcake sweet roll jujubes tiramisu.Gummies
+                                    bonbon apple pie fruitcake icing biscuit apple pie jelly-o sweet roll.
+                                </p>
+                            </div>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                        </ul>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <h4 class="card-title mb-0">Video Card</h4>
+                            </div>
+                            <div class="embed-responsive embed-responsive-item embed-responsive-16by9 w-100">
+                                <iframe src="https://www.youtube.com/embed/2b9txcAt4e0" style="width:100%" height="300"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    Candy cupcake sugar plum oat cake wafer marzipan jujubes.
+                                    Jelly-o sesame snaps cheesecake topping. Cupcake fruitcake macaroon donut pastry gummies
+                                    tiramisu
+                                    chocolate bar muffin.
+                                </p>
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12">
+                    <div class="card mb-4">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <h4 class="card-title">Carousel</h4>
+                                <h6 class="card-subtitle">Support card subtitle</h6>
+                            </div>
+                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="{{ 'photos/theregisti-WsJBwU9psWI-unsplash.jpg'|images }}" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ 'photos/theregisti-gcICIdjUzSg-unsplash.jpg'|images }}" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{ 'photos/kelly-sikkema-YK0HPwWDJ1I-unsplash.jpg'|images }}" class="d-block w-100" alt="...">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt assumenda mollitia
+                                    officia dolorum eius quasi.Chocolate sesame snaps apple pie danish cupcake sweet roll
+                                    jujubes tiramisu.
+                                </p>
+                                <p class="card-text">
+                                    Gummies bonbon apple pie fruitcake icing biscuit apple pie jelly-o sweet roll. Toffee
+                                    sugar
+                                    plum sugar
+                                    plum jelly-o jujubes bonbon dessert carrot cake.
+                                    Sweet pie candy jelly. Sesame snaps biscuit sugar plum. Sweet roll topping fruitcake.
+                                    Caramels liquorice
+                                    biscuit ice cream fruitcake cotton candy tart.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <h4 class="card-title">Feedback Form</h4>
+                                <p class="card-text">
+                                    Gummies bonbon apple pie fruitcake icing biscuit apple pie jelly-o sweet roll. Toffee
+                                    sugar
+                                    plum sugar
+                                    plum jelly-o jujubes bonbon dessert carrot cake.
+                                </p>
+                                <form class="form" method="post">
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                            <label for="feedback1" class="sr-only">Name</label>
+                                            <input type="text" id="feedback1" class="form-control" placeholder="Name"
+                                                name="name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="feedback4" class="sr-only">Last Game</label>
+                                            <input type="text" id="feedback4" class="form-control" placeholder="Last Name"
+                                                name="LastName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="feedback2" class="sr-only">Email</label>
+                                            <input type="email" id="feedback2" class="form-control" placeholder="Email"
+                                                name="email">
+                                        </div>
+                                        <div class="form-group">
+                                            <select name="reason" class="form-control">
+                                                <option value="Inquiry">Inquiry</option>
+                                                <option value="Complain">complaints</option>
+                                                <option value="Quotation">Quotation</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group form-label-group">
+                                            <textarea class="form-control" id="label-textarea" rows="3"
+                                                placeholder="Suggestion"></textarea>
+                                            <label for="label-textarea"></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary me-1">Submit</button>
+                                        <button type="reset" class="btn btn-light-primary">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="card mb-4">
+                        <div class="card-content">
+                            <img class="card-img-top img-fluid" src="{{ 'photos/theregisti-ziSzilQLSOM-unsplash.jpg'|images }}" alt="Card image cap"/>
+                            <div class="card-body">
+                                <h4 class="card-title">Top Image Cap</h4>
+                                <p class="card-text">
+                                    Jelly-o sesame snaps cheesecake topping. Cupcake fruitcake macaroon donut
+                                    pastry gummies tiramisu chocolate bar muffin. Dessert bonbon caramels brownie chocolate
+                                    bar
+                                    chocolate tart dragée.
+                                </p>
+                                <p class="card-text">
+                                    Cupcake fruitcake macaroon donut pastry gummies tiramisu chocolate bar muffin.
+                                </p>
+                                <button class="btn btn-primary block">Update now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="card mb-4">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <h4 class="card-title">Bottom Image Cap</h4>
+                                <p class="card-text">
+                                    Jelly-o sesame snaps cheesecake topping. Cupcake fruitcake macaroon donut
+                                    pastry gummies tiramisu chocolate bar muffin. Dessert bonbon caramels brownie chocolate
+                                    bar
+                                    chocolate tart dragée.
+                                </p>
+                                <p class="card-text">
+                                    Cupcake fruitcake macaroon donut pastry gummies tiramisu chocolate bar
+                                    muffin.
+                                </p>
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </div>
+                            <img class="card-img-bottom img-fluid h-10" src="{{ 'photos/theregisti-ziSzilQLSOM-unsplash.jpg'|images }}" alt="Card image cap">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Basic Card types section end -->
+        <!-- Groups section start -->
+        <section id="groups">
+            <div class="row match-height">
+                <div class="col-12 mt-3 mb-1">
+                    <h4 class="section-title text-uppercase">Groups</h4>
+                </div>
+            </div>
+            <div class="row match-height">
+                <div class="col-12">
+                    <div class="card-group">
+                        {% for i in range(0, 4) %}
+                            <div class="card">
+                                <div class="card-content">
+                                    <img class="card-img-top img-fluid" src="{{ 'photos/theregisti-ziSzilQLSOM-unsplash.jpg'|images }}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card title</h4>
+                                        <p class="card-text">
+                                            This card has supporting text below as a natural lead-in to additional
+                                            content.</p>
+                                        <small class="text-muted">Last updated 3 mins ago</small>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Groups section end -->
+    </div>
+{% endblock %}

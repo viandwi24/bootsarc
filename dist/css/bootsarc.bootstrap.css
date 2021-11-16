@@ -2486,7 +2486,7 @@ progress {
   color: #212529;
   background-color: #FEFFFF;
   background-clip: padding-box;
-  border: none;
+  border: 1px solid #ced4da;
   appearance: none;
   border-radius: 0.3rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -4743,8 +4743,7 @@ textarea.form-control-lg {
   word-wrap: break-word;
   background-color: #FEFFFF;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border-radius: 0.7rem;
 }
 .card > hr {
   margin-right: 0;
@@ -4756,13 +4755,13 @@ textarea.form-control-lg {
 }
 .card > .list-group:first-child {
   border-top-width: 0;
-  border-top-left-radius: calc(0.25rem - 1px);
-  border-top-right-radius: calc(0.25rem - 1px);
+  border-top-left-radius: calc(0.7rem - 1px);
+  border-top-right-radius: calc(0.7rem - 1px);
 }
 .card > .list-group:last-child {
   border-bottom-width: 0;
-  border-bottom-right-radius: calc(0.25rem - 1px);
-  border-bottom-left-radius: calc(0.25rem - 1px);
+  border-bottom-right-radius: calc(0.7rem - 1px);
+  border-bottom-left-radius: calc(0.7rem - 1px);
 }
 .card > .card-header + .list-group,
 .card > .list-group + .card-footer {
@@ -4771,15 +4770,15 @@ textarea.form-control-lg {
 
 .card-body {
   flex: 1 1 auto;
-  padding: 0.25rem 0.25rem;
+  padding: 2rem 2rem;
 }
 
 .card-title {
-  margin-bottom: 0.125rem;
+  margin-bottom: 1rem;
 }
 
 .card-subtitle {
-  margin-top: -0.0625rem;
+  margin-top: -0.5rem;
   margin-bottom: 0;
 }
 
@@ -4788,32 +4787,32 @@ textarea.form-control-lg {
 }
 
 .card-link + .card-link {
-  margin-left: 0.25rem;
+  margin-left: 2rem;
 }
 
 .card-header {
-  padding: 0.125rem 0.25rem;
+  padding: 1rem 2rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #FEFFFF;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 .card-header:first-child {
-  border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+  border-radius: calc(0.7rem - 1px) calc(0.7rem - 1px) 0 0;
 }
 
 .card-footer {
-  padding: 0.125rem 0.25rem;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  padding: 1rem 2rem;
+  background-color: #FEFFFF;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 .card-footer:last-child {
-  border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
+  border-radius: 0 0 calc(0.7rem - 1px) calc(0.7rem - 1px);
 }
 
 .card-header-tabs {
-  margin-right: -0.125rem;
-  margin-bottom: -0.125rem;
-  margin-left: -0.125rem;
+  margin-right: -1rem;
+  margin-bottom: -1rem;
+  margin-left: -1rem;
   border-bottom: 0;
 }
 .card-header-tabs .nav-link.active {
@@ -4822,8 +4821,8 @@ textarea.form-control-lg {
 }
 
 .card-header-pills {
-  margin-right: -0.125rem;
-  margin-left: -0.125rem;
+  margin-right: -1rem;
+  margin-left: -1rem;
 }
 
 .card-img-overlay {
@@ -4833,7 +4832,7 @@ textarea.form-control-lg {
   bottom: 0;
   left: 0;
   padding: 0.25rem;
-  border-radius: calc(0.25rem - 1px);
+  border-radius: calc(0.7rem - 1px);
 }
 
 .card-img,
@@ -4844,14 +4843,14 @@ textarea.form-control-lg {
 
 .card-img,
 .card-img-top {
-  border-top-left-radius: calc(0.25rem - 1px);
-  border-top-right-radius: calc(0.25rem - 1px);
+  border-top-left-radius: calc(0.7rem - 1px);
+  border-top-right-radius: calc(0.7rem - 1px);
 }
 
 .card-img,
 .card-img-bottom {
-  border-bottom-right-radius: calc(0.25rem - 1px);
-  border-bottom-left-radius: calc(0.25rem - 1px);
+  border-bottom-right-radius: calc(0.7rem - 1px);
+  border-bottom-left-radius: calc(0.7rem - 1px);
 }
 
 .card-group > .card {
@@ -5044,7 +5043,7 @@ textarea.form-control-lg {
 .breadcrumb-item a:hover {
   color: #495057;
 }
-.breadcrumb-item.breadcrumb-dot::before {
+.breadcrumb-item.breadcrumb-dot::after {
   font-family: bootstrap-icons;
   content: "\f287\f287\f287";
   font-size: 0.325rem;
@@ -13773,4 +13772,23 @@ body.sidebar-fixed .sidebar .sidebar-max-height {
 
 .rotate--360 {
   transform: rotate(-360deg);
+}
+
+.component-viewer {
+  border-radius: 7px;
+  border: 1px solid #dee2e6;
+  padding: 2rem;
+  padding-top: 3rem;
+  background: #e9ecef;
+  position: relative;
+  overflow: hidden;
+}
+.component-viewer::after {
+  content: "Component Viewer";
+  padding: 0.25rem 0.5rem;
+  position: absolute;
+  font-size: 0.725rem;
+  top: 0;
+  left: 0;
+  background: #FEFFFF;
 }

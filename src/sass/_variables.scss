@@ -539,6 +539,22 @@ $border-radius-xl:            .4rem !default;
 $border-radius-2xl:           .5rem !default;
 $border-radius-3xl:           .6rem !default;
 $border-radius-4xl:           .7rem !default;
+$border-radius-5xl:           .8rem !default;
+$border-radius-6xl:           .9rem !default;
+$border-radius-7xl:           1rem !default;
+$border-radius-8xl:           1.1rem !default;
+$border-radius-9xl:           1.2rem !default;
+$border-radius-10xl:          1.3rem !default;
+$border-radius-11xl:          1.4rem !default;
+$border-radius-12xl:          1.5rem !default;
+$border-radius-13xl:          1.6rem !default;
+$border-radius-14xl:          1.7rem !default;
+$border-radius-15xl:          1.8rem !default;
+$border-radius-16xl:          1.9rem !default;
+$border-radius-17xl:          2rem !default;
+$border-radius-18xl:          2.1rem !default;
+$border-radius-19xl:          2.2rem !default;
+$border-radius-20xl:          2.3rem !default;
 $border-radius-pill:          50rem !default;
 // scss-docs-end border-radius-variables
 
@@ -1275,23 +1291,23 @@ $placeholder-opacity-min:           .2 !default;
 // Cards
 
 // scss-docs-start card-variables
-$card-spacer-y:                     $spacer !default;
-$card-spacer-x:                     $spacer !default;
-$card-title-spacer-y:               $spacer * .5 !default;
+$card-spacer-y:                     2rem !default;
+$card-spacer-x:                     2rem !default;
+$card-title-spacer-y:               1rem !default;
 $card-border-width:                 $border-width !default;
-$card-border-color:                 rgba($black, .125) !default;
-$card-border-radius:                $border-radius !default;
+$card-border-color:                 rgba($black, .08) !default;
+$card-border-radius:                $border-radius-4xl !default;
 $card-box-shadow:                   null !default;
 $card-inner-border-radius:          subtract($card-border-radius, $card-border-width) !default;
-$card-cap-padding-y:                $card-spacer-y * .5 !default;
-$card-cap-padding-x:                $card-spacer-x !default;
-$card-cap-bg:                       rgba($black, .03) !default;
-$card-cap-color:                    null !default;
 $card-height:                       null !default;
 $card-color:                        null !default;
 $card-bg:                           $white !default;
 $card-img-overlay-padding:          $spacer !default;
 $card-group-margin:                 $grid-gutter-width * .5 !default;
+$card-cap-padding-y:                $card-spacer-y * .5 !default;
+$card-cap-padding-x:                $card-spacer-x !default;
+$card-cap-bg:                       $card-bg !default;
+$card-cap-color:                    null !default;
 // scss-docs-end card-variables
 
 // Accordion

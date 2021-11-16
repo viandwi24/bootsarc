@@ -46,7 +46,7 @@ $breadcrumb-link-transition: all 0.2s ease-in-out;
   }
 
   &.breadcrumb-dot {
-    &::before {
+    &::after {
       font-family: bootstrap-icons;
       content: "\f287 \f287 \f287";
       @include font-size($font-size-4xs);

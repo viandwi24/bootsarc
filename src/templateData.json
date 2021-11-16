@@ -67,6 +67,12 @@
           "label": "Button",
           "icon": "<i class=\"icon\" data-feather=\"circle\"></i>",
           "link": "components/bootstrap-button.html"
+        },
+        {
+          "type": "item",
+          "label": "Card",
+          "icon": "<i class=\"icon\" data-feather=\"circle\"></i>",
+          "link": "components/bootstrap-card.html"
         }
       ]
     },

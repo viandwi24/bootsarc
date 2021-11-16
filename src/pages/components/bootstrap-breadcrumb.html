@@ -24,16 +24,97 @@
     
     <div class="page-content">
         <div class="content-wrapper">
-            <div class="card">
-                <div class="card-header">
-                    Featured
+            <section class="section">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Breadcrumb</h5>
+                        <p class="card-text">
+                            Indicate the current page’s location within a navigational hierarchy that automatically adds separators via CSS.
+                        </p>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Default
+                    </div>
+                    <div class="card-body">
+                        <div class="component-viewer">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb mb-4">
+                                    <li class="breadcrumb-item active" aria-current="page">Home</li>
+                                </ol>
+                            </nav>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb mb-4">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                </ol>
+                            </nav>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Library</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Dot
+                    </div>
+                    <div class="card-body">
+                        <div class="component-viewer">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb mb-4">
+                                    <li class="breadcrumb-item breadcrumb-dot"></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                                </ol>
+                            </nav>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item breadcrumb-dot"></li>
+                                    <li class="breadcrumb-item"><a href="#">Library</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Transparent Background
+                    </div>
+                    <div class="card-body">
+                        <div class="component-viewer">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb bg-transparent mb-4">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Library</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                                </ol>
+                            </nav>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb bg-transparent mb-4">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Library</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                                </ol>
+                            </nav>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb bg-transparent">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Library</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 {% endblock %}
