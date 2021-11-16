@@ -1,12 +1,15 @@
-<nav class="sidebar scroll-only-menu">
+<nav class="sidebar">
     <div class="sidebar-wrapper">
+        <button class="sidebar-collapse-btn">
+            <i class="fa fa-chevron-left"></i>
+        </button>
         <div class="sidebar-header">
             <a href="{{ 'index.html'|page }}" class="sidebar-brand">
-                <img src="{{ 'logo/logo.png'|images }}" alt="{{ app.name }}" height="32">
+                <img src="{{ 'logo/logo.png'|images }}" alt="{{ app.name }}" height="32" class="logo">
                 <span>Bootsarc</span>
             </a>
         </div>
-        <div class="flex-fill d-flex flex-column justify-content-between sidebar-max-height">
+        <div class="sidebar-content">
             <ul class="sidebar-menu flex-fill">
                 {% set sidebarCurrentLoopItems = sidebarMenuItems %}
                 {% set i = 0 %}
@@ -26,6 +29,7 @@
         </div>
     </div>
 </nav>
+{% include "sidebar-required.html" %}
 {# <nav class="sidebar">
     <div class="sidebar-wrapper">
         <div class="sidebar-header">

@@ -6665,12 +6665,18 @@ body .app {
 body .app .main {
   padding: 2rem 2rem;
   flex: 1 1 auto;
+  z-index: 5;
 }
 body.sidebar-fixed .app .main {
   margin: 0px 0px 0px 270px;
   padding: 2rem 2rem;
 }
 
+@media (max-width: 767.98px) {
+  body .app .main {
+    padding: 1rem 1rem !important;
+  }
+}
 @media (max-width: 767.98px) {
   body.sidebar-fixed .app .main {
     margin: 0;
@@ -6711,6 +6717,36 @@ body.sidebar-fixed .app .main {
   height: 32px;
 }
 
+.feather-48 {
+  width: 48px;
+  height: 48px;
+}
+
+.feather-64 {
+  width: 64px;
+  height: 64px;
+}
+
+.feather-96 {
+  width: 96px;
+  height: 96px;
+}
+
+.feather-128 {
+  width: 128px;
+  height: 128px;
+}
+
+.feather-256 {
+  width: 256px;
+  height: 256px;
+}
+
+.feather-512 {
+  width: 512px;
+  height: 512px;
+}
+
 /**
  * SIDEBAR
  */
@@ -6747,18 +6783,40 @@ body.sidebar-fixed .app .main {
     background-position: 0% 50%;
   }
 }
+.sidebar {
+  z-index: 10;
+}
 .sidebar > .sidebar-wrapper {
   background-color: white;
   width: 270px;
-  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   height: 100%;
   min-height: 100%;
-  position: relative;
   top: 0;
   left: 0;
-  z-index: 10;
+}
+.sidebar > .sidebar-wrapper > * {
+  overflow-x: hidden;
+}
+.sidebar > .sidebar-wrapper .sidebar-collapse-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  z-index: 11;
+  right: -0.75rem;
+  top: 1.5rem;
+  background-color: white;
+  outline: 0;
+  border: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  color: #000;
+  font-size: 0.725rem;
+  border-radius: 50rem;
+  padding: 0.52rem 0.65rem;
 }
 .sidebar > .sidebar-wrapper .sidebar-header {
   padding: 1rem;
@@ -6766,7 +6824,8 @@ body.sidebar-fixed .app .main {
   justify-content: center;
   align-items: center;
   align-content: center;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
+  overflow: hidden;
 }
 .sidebar > .sidebar-wrapper .sidebar-header .sidebar-brand {
   display: flex;
@@ -6791,10 +6850,43 @@ body.sidebar-fixed .app .main {
   text-decoration: none;
   background-color: inherit;
 }
+.sidebar > .sidebar-wrapper .sidebar-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+.sidebar > .sidebar-wrapper .sidebar-content > * {
+  transition: all 0.3s ease-in-out;
+}
 .sidebar > .sidebar-wrapper .sidebar-menu {
   display: block;
   padding: 0.25rem 1rem;
   margin: 0;
+  object-fit: contain;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.sidebar > .sidebar-wrapper .sidebar-menu::-webkit-scrollbar {
+  position: fixed;
+  overflow: auto;
+  width: 10px;
+}
+.sidebar > .sidebar-wrapper .sidebar-menu::-webkit-scrollbar-track-piece {
+  background-color: #FFF;
+}
+.sidebar > .sidebar-wrapper .sidebar-menu::-webkit-scrollbar-thumb {
+  background-color: #CBCBCB;
+  outline: 2px solid #FFF;
+  outline-offset: -2px;
+  border: 0.1px solid #B7B7B7;
+}
+.sidebar > .sidebar-wrapper .sidebar-menu::-webkit-scrollbar-thumb:hover {
+  background-color: #909090;
 }
 .sidebar > .sidebar-wrapper .sidebar-menu *::marker {
   display: none;
@@ -6812,12 +6904,19 @@ body.sidebar-fixed .app .main {
   display: flex;
   align-items: center;
   align-content: center;
+  vertical-align: middle;
   width: 100%;
   padding: 0.7rem 1rem;
   text-decoration: none;
   color: #6c757d;
   background-color: transparent;
   border-radius: 0.75rem;
+}
+.sidebar > .sidebar-wrapper .sidebar-menu .sidebar-item > .sidebar-link > .icon.bi {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  align-content: center;
 }
 .sidebar > .sidebar-wrapper .sidebar-menu .sidebar-item > .sidebar-link > .icon.feather {
   width: 1.1rem;
@@ -6875,8 +6974,51 @@ body.sidebar-fixed .app .main {
   padding: 1.2rem 1rem 0 1rem;
 }
 
-body.sidebar-fixed .sidebar .sidebar-wrapper {
+.sidebar.sidebar-collapse > .sidebar-wrapper {
+  width: 80px;
+}
+.sidebar.sidebar-collapse > .sidebar-wrapper .sidebar-collapse-btn i {
+  transform: rotate(180deg);
+}
+.sidebar.sidebar-collapse > .sidebar-wrapper .sidebar-item > .sidebar-link span {
+  display: none;
+}
+.sidebar.sidebar-collapse > .sidebar-wrapper .sidebar-item.has-submenu > .sidebar-link {
+  position: relative;
+}
+.sidebar.sidebar-collapse > .sidebar-wrapper .sidebar-item.has-submenu > .sidebar-link::after {
+  display: none;
+}
+.sidebar.sidebar-collapse > .sidebar-wrapper .sidebar-item-header {
+  display: none;
+}
+.sidebar.sidebar-collapse > .sidebar-wrapper .sidebar-header .sidebar-brand span {
+  display: none;
+}
+.sidebar.sidebar-collapse > .sidebar-wrapper > .sidebar-content {
+  justify-content: center;
+  align-items: center;
+}
+.sidebar.sidebar-collapse > .sidebar-wrapper > .sidebar-content > *:not(.sidebar-menu) {
+  display: none;
+}
+
+button.sidebar-floating-toggle {
   position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 1rem;
+  background-color: #FEFFFF;
+  border-radius: 0.4rem;
+  z-index: 11;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+body.sidebar-fixed .sidebar {
+  position: fixed;
+  height: 100vh;
+}
+body.sidebar-fixed .sidebar .sidebar-wrapper {
   overflow-y: auto;
   height: 100vh;
 }
@@ -6902,30 +7044,10 @@ body.sidebar-fixed .sidebar .sidebar-max-height {
   overflow-y: hidden;
 }
 
-.sidebar.scroll-only-menu .sidebar-wrapper {
-  overflow: hidden;
-}
-.sidebar.scroll-only-menu .sidebar-wrapper .sidebar-menu {
-  object-fit: contain;
-  height: 100%;
-  overflow-y: auto;
-}
-.sidebar.scroll-only-menu .sidebar-wrapper .sidebar-menu::-webkit-scrollbar {
-  position: fixed;
-  overflow: auto;
-  width: 10px;
-}
-.sidebar.scroll-only-menu .sidebar-wrapper .sidebar-menu::-webkit-scrollbar-track-piece {
-  background-color: #FFF;
-}
-.sidebar.scroll-only-menu .sidebar-wrapper .sidebar-menu::-webkit-scrollbar-thumb {
-  background-color: #CBCBCB;
-  outline: 2px solid #FFF;
-  outline-offset: -2px;
-  border: 0.1px solid #B7B7B7;
-}
-.sidebar.scroll-only-menu .sidebar-wrapper .sidebar-menu::-webkit-scrollbar-thumb:hover {
-  background-color: #909090;
+body.sidebar-collapsed .app .main {
+  margin: 0;
+  margin-left: 5rem;
+  padding: 2rem 2rem;
 }
 
 .sidebar > .sidebar-wrapper .sidebar-avatar-box {
@@ -6933,6 +7055,7 @@ body.sidebar-fixed .sidebar .sidebar-max-height {
 }
 .sidebar > .sidebar-wrapper .sidebar-avatar-box > .sidebar-avatar-box__wrapper {
   position: relative;
+  overflow: hidden;
   border-radius: 10px;
   padding: 0.75rem 1rem;
   background-color: rgba(233, 236, 239, 0.75);
@@ -7003,10 +7126,10 @@ body.sidebar-fixed .sidebar .sidebar-max-height {
   background-size: 200% auto;
   animation: bg-gradient-2-color 10s ease-in infinite;
   color: #333347;
-  background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text !important;
+  text-fill-color: transparent !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }
 @media (min-width: 1200px) {
   .page-header .page-title {

@@ -4,12 +4,12 @@
   animation: bg-gradient-2-color $time ease-in infinite;
 }
 @mixin text-gradient($color1, $color2, $direction, $time, $size, $color: color-contrast($body-bg)) {
-  @include bg-gradient($primary, $secondary, $direction, $time, $size);
+  @include bg-gradient($color1, $color2, $direction, $time, $size);
   color: $color;
-  background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text !important;
+  text-fill-color: transparent !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }
 
 // animation
