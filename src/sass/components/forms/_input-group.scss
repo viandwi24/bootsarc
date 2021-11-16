@@ -119,3 +119,38 @@
     @include border-start-radius(0);
   }
 }
+
+
+.input-group-with-button {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap; // For form validation feedback
+  align-items: stretch;
+  width: 100%;
+  overflow: hidden;
+  
+  > .form-control,
+  > .form-select {
+    position: relative; // For focus state's z-index
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0; // https://stackoverflow.com/questions/36247140/why-dont-flex-items-shrink-past-content-size
+    padding-right: 2.75rem;
+  }
+
+  // Ensure buttons are always above inputs for more visually pleasing borders.
+  // This isn't needed for `.input-group-text` since it shares the same border-color
+  // as our inputs.
+  .btn {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    margin-right: .35rem;
+
+    &:focus {
+      z-index: 3;
+    }
+  }
+}
