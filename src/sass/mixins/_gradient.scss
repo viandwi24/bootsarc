@@ -1,7 +1,7 @@
 @mixin bg-gradient($color1, $color2, $direction, $time, $size) {
   background: linear-gradient($direction, $color2, $color1);
   background-size: $size;
-  animation: sidebar-item $time ease-in infinite;
+  animation: bg-gradient-2-color $time ease-in infinite;
 }
 @mixin text-gradient($color1, $color2, $direction, $time, $size, $color: color-contrast($body-bg)) {
   @include bg-gradient($primary, $secondary, $direction, $time, $size);
@@ -10,4 +10,21 @@
   text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+// animation
+@-webkit-keyframes bg-gradient-2-color {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@-moz-keyframes bg-gradient-2-color {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes bg-gradient-2-color {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
