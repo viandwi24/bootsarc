@@ -333,3 +333,25 @@
     }
   }
 }
+
+
+
+// 
+body {
+  .navbar.main-navbar {
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 1030;
+    padding-right: $main-padding-x;
+    padding-left: calc(#{$sidebar-wrapper-width} + #{$main-padding-x});
+  }
+
+  // when sidebar collapsed
+  &.sidebar-collapsed {
+    .navbar.main-navbar {
+      padding-left: calc(#{$sidebar-collapse-wrapper-width} + #{$main-padding-x});
+    }  
+  }
+}

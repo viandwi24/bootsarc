@@ -3,21 +3,12 @@
 {% import "components/page.html" as page %}
 
 {% set pageTitle = "Dashboard" %}
-{% set layout = "sidebar-fixed" %}
 
 {% block content %}
     <div class="page-header">
         <div class="page-nav d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
                 <h1 class="page-title">{{ pageTitle }}</h1>
-                {# <nav aria-label="breadcrumb" class="mx-4">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item breadcrumb-dot"></li>
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Library</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Data</li>
-                    </ol>
-                </nav> #}
             </div>
             <div class="d-flex align-items-center">
                 <form class="page-search d-flex">

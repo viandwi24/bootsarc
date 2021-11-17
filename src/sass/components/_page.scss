@@ -4,15 +4,14 @@
 .page-header {
   margin-bottom: 1rem;
   .page-title {
+    color: $dark;
     font-weight: $font-weight-medium;
     @include font-size($font-size-2xl);
-    @include text-gradient($primary, $secondary, to right, $animation-gradient-time, 200% auto);
   }
   .page-search {
     .input-group {
       button {
         @include border-radius($border-radius-lg);
-        @include bg-gradient($primary, $secondary, to right, $animation-gradient-time, 200% auto);
       }
     }
   }

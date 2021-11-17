@@ -1,6 +1,12 @@
 import Sidebar from './components/sidebar'
 
 function BootsarchInit() {
+  // body scrollbar
+  if (window && window.OverlayScrollbars) {
+    const { OverlayScrollbars } = window
+    window.OverlayScrollbarsBodyInstance = OverlayScrollbars(document.querySelectorAll('body'), {});
+  }
+
   // sidebar
   const sidebar = new Sidebar()
   sidebar.init()

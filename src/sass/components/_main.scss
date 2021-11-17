@@ -22,12 +22,23 @@ body {
   &.sidebar-fixed {
     .app {
       .main {
-        margin: $main-margin;
+        margin-left: $sidebar-wrapper-width;
+        padding: $main-padding;
+      }
+    }
+  }
+
+  // layout - navbar fixed
+  &.navbar-fixed {
+    .app {
+      .main {
+        margin-top: $main-navbar-wrapper-height;
         padding: $main-padding;
       }
     }
   }
 }
+
 // responsive
 @include media-breakpoint-down(md) {
   body {

@@ -73,7 +73,6 @@ export default class Sidebar {
       const wrapper = this.el.querySelector('.sidebar-wrapper')
       if (this.el.classList.contains('sidebar-collapse')) {
         this.el.classList.remove('sidebar-collapse')
-
         const animmateShowHeader = () => {
           wrapper.querySelectorAll('.sidebar-link span').forEach(text => {
             text.style.display = null
@@ -90,13 +89,9 @@ export default class Sidebar {
         }
         const animateSidebarWidth = () => {
           document.body.classList.remove('sidebar-collapsed')
-          document.querySelector('.main').animate([
-            { marginLeft: 5 + 'rem' },
-            { marginLeft: wrapper.scrollWidth + 'px' }
-          ], {
-            duration: 500,
-            easing: 'ease-in-out',
-          })
+          document.querySelector('.main').animate([{ marginLeft: 5 + 'rem' },{ marginLeft: wrapper.scrollWidth + 'px' }], { duration: 500, easing: 'ease-in-out' })
+          document.querySelector('.main-navbar')?.animate([{ paddingLeft: (80 + 32) + 'px', width: 100 + '%' },{ paddingLeft: wrapper.scrollWidth + 'px', width: document.querySelector('.main-navbar').scrollWidth + 'px' }], { duration: 500, easing: 'ease-in-out' })
+          wrapper.querySelector('.sidebar-collapse-btn i')?.animate([{ transform: 'rotate(180deg)' },{ transform: 'rotate(360deg)' }], { duration: 1000, easing: 'ease-in-out' })
           wrapper.animate([
             { width: 80 + 'px' },
             { width: wrapper.scrollWidth + 'px' }
@@ -146,13 +141,9 @@ export default class Sidebar {
             }
           })
           setTimeout(() => {
-            document.querySelector('.main').animate([
-              { marginLeft: wrapper.scrollWidth + 'px' },
-              { marginLeft: 5 + 'rem' }
-            ], {
-              duration: 500,
-              easing: 'ease-in-out',
-            })
+            document.querySelector('.main').animate([ { marginLeft: wrapper.scrollWidth + 'px' }, { marginLeft: 5 + 'rem' } ], { duration: 500, easing: 'ease-in-out' })
+            document.querySelector('.main-navbar')?.animate([{ paddingLeft: wrapper.scrollWidth + 'px', width: document.querySelector('.main-navbar').scrollWidth + 'px' },{ paddingLeft: (80 + 32) + 'px', width: 100 + '%' }], { duration: 500, easing: 'ease-in-out' })
+            wrapper.querySelector('.sidebar-collapse-btn i')?.animate([{ transform: 'rotate(0deg)' },{ transform: 'rotate(180deg)' }], { duration: 1000, easing: 'ease-in-out' })
             wrapper.animate([
               { width: wrapper.scrollWidth + 'px' },
               { width: 80 + 'px' }
