@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootsarc</title>
-    <!-- styles -->
-    <link rel="stylesheet" href="/dist/css/bootsarc.bootstrap.css">
-    <!-- fonts & icons -->
-    <link rel="stylesheet" href="/vendors/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="/vendors/fontawesome/css/all.min.css">
+    <!-- required styles -->
+    <link rel="stylesheet" href="/vendors/bootstrap-icons/bootstrap-icons.css"> <!-- bootsarc dependencies | components : fonts -->
+    <link rel="stylesheet" href="/vendors/fontawesome/css/all.min.css"> <!-- bootsarc dependencies | components : fonts -->
+    <link rel="stylesheet" href="/vendors/overlay-scrollbars/css/OverlayScrollbars.min.css"> <!-- bootsarc dependencies | components : scrollbar -->
+    <link rel="stylesheet" href="/dist/css/bootsarc.bootstrap.css"> <!-- bootsarc main styles -->
 </head>
 <body class="auto-init sidebar-fixed">
     <div id="app" class="app">
@@ -21,12 +21,12 @@
         </button>
         <div class="sidebar-header">
             <a href="/pages/index.html" class="sidebar-brand">
-                <img src="/assets/images/logo/logo.png" alt="Bootsarc" height="32" class="logo">
+                <img src="/assets/images/logo/logo_64.png" alt="Bootsarc" height="42" class="logo">
                 <span>Bootsarc</span>
             </a>
         </div>
         <div class="sidebar-content">
-            <ul class="sidebar-menu flex-fill">
+            <ul class="sidebar-menu">
                 
                 
                 
@@ -179,11 +179,32 @@
     
 
     
-        <li class="sidebar-item  ">
+        <li class="sidebar-item   has-submenu ">
             <a class="sidebar-link" href=" # ">
                 <i class="icon" data-feather="layers"></i>
-                <span>Extra Component</span>
+                <span>Bootsarc Component</span>
             </a>
+            
+                <ul class="sidebar-submenu">
+                    
+                    
+                    
+                    
+
+    
+        <li class="sidebar-item  ">
+            <a class="sidebar-link" href=" /pages/components/bootsarc-sidebar.html ">
+                <i class="icon" data-feather="sidebar"></i>
+                <span>Sidebar</span>
+            </a>
+            
+        </li>
+    
+    
+
+                    
+                    
+                </ul>
             
         </li>
     
@@ -430,17 +451,7 @@
     
 
             </ul>
-            <div class="sidebar-avatar-box">
-                <div class="sidebar-avatar-box__wrapper">
-                    <div class="sidebar-avatar-box__avatar-wrapper">
-                        <img src="/assets/images/avatars/2.png" alt="Avatar" class="rounded-circle" height="42" width="42">
-                    </div>
-                    <div class="sidebar-avatar-box__user-wrapper">
-                        <div class="sidebar-avatar-box__user__name">Alfian Dwi</div>
-                        <div class="sidebar-avatar-box__user__email">viandwicyber@gmail.com</div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 </nav>
@@ -588,11 +599,13 @@
         </main>
     </div>
 
-    <!-- fonts & icons -->
-    <script src="/vendors/feather-icons/dist/feather.min.js"></script>
-    <!-- scripts -->
-    <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- required scripts -->
+    <script src="/vendors/feather-icons/dist/feather.min.js"></script> <!-- bootsarc dependencies | components : fonts -->
+    <script src="/vendors/overlay-scrollbars/js/OverlayScrollbars.min.js"></script> <!-- bootsarc dependencies | components : scrollbar -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script> <!-- bootstrap dependencies -->
+    <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script> <!-- bootsarc main scripts -->
     
     <script src="/dist/js/bootsarc.js"></script>
+    <!-- custom scripts -->
 </body>
 </html>

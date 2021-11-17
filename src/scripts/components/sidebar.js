@@ -1,12 +1,70 @@
+import { merge } from '../lib/merge'
+
 export default class Sidebar {
-  constructor(query = 'nav.sidebar') {
+  defaultOptions = {
+    OverlayScrollbars: {
+    }
+  }
+
+  constructor(query = 'nav.sidebar', isntanceOptions = {}) {
     this.query = query
+    this.options = merge(this.defaultOptions, isntanceOptions)
   }
 
   init() {
     this.el = typeof this.query === HTMLElement ? this.query : document.querySelector(this.query)
-    this.prepareMenuItemHasSubMenu()
+    this.addSidebarItemEventListener()
+    this.openSubMenuIfActive()
     this.constructSidebarCollapse()
+    this.addMenuScrollbar()
+  }
+
+  addMenuScrollbar() {
+    if (window && window.OverlayScrollbars) {
+      const { OverlayScrollbars } = window
+      this.OverlayScrollbars = OverlayScrollbars(document.querySelectorAll('.sidebar-content'), this.options.OverlayScrollbars);
+    }
+  }
+
+  addSidebarItemEventListener() {
+    const menus = this.el.querySelectorAll('.sidebar-menu')
+    menus.forEach(menu => {
+      const items = menu.querySelectorAll('.sidebar-item')
+      items.forEach(item => {
+        // add event listener
+        const itemLink = item.querySelector('.sidebar-link')
+        if (item.classList.contains('has-submenu')) {
+          itemLink.addEventListener('click', (e) => {
+            e.preventDefault()
+            const submenu = item.querySelector('.sidebar-submenu')
+            this.OverlayScrollbars.sleep()
+            if (item.classList.contains('submenu-open')) {
+              submenu.animate([
+                { height: submenu.scrollHeight + 'px' },
+                { height: 0 }
+              ],{
+                duration: 400,
+                easing: 'ease-in'
+              }).onfinish = () => {
+                item.classList.remove('submenu-open')
+                this.OverlayScrollbars.update()
+              }
+            } else {
+              item.classList.add('submenu-open')
+              submenu.animate([
+                { height: 0 },
+                { height: submenu.scrollHeight + 'px' }
+              ],{
+                duration: 400,
+                easing: 'ease-out'
+              }).onfinish = () => {
+                this.OverlayScrollbars.update()
+              }
+            }
+          })
+        }
+      })
+    })
   }
 
   constructSidebarCollapse() {
@@ -26,6 +84,7 @@ export default class Sidebar {
             text.animate([ { opacity: 0 }, { opacity: 1 } ],{ duration: 250, easing: 'ease-in' })
           })
           document.body.classList.remove('sidebar-collapsed')
+          setTimeout(() => onAllFinish(), 250)
         }
         const animateSidebarWidth = () => {
           document.body.classList.remove('sidebar-collapsed')
@@ -51,6 +110,9 @@ export default class Sidebar {
             })
           }
         }
+        const onAllFinish = () => {
+          this.openSubMenuIfActive()
+        }
         animateSidebarWidth()
         setTimeout(() => animmateShowHeader(), 400)
       } else {
@@ -62,7 +124,6 @@ export default class Sidebar {
             }
           }
         })
-
         const animateHideElement = () => {
           wrapper.querySelector('.sidebar-brand span')
             .animate([ { opacity: 1, display: 'inline' }, { opacity: 0, display: 'none' } ],{ duration: 500, easing: 'ease-in' })
@@ -75,7 +136,6 @@ export default class Sidebar {
           })
           setTimeout(() => animateSidebarWidth(), 350)
         }
-
         const animateSidebarWidth = () => {
           wrapper.querySelectorAll('.sidebar-link span').forEach(text => {
             text.animate([ { opacity: 1 }, { opacity: 0 } ],{ duration: 300, easing: 'ease-in' }).onfinish = () => {
@@ -97,19 +157,22 @@ export default class Sidebar {
               duration: 500,
               easing: 'ease-in-out',
             }).onfinish = () => {
-              wrapper.querySelector('.sidebar-brand span').style.removeProperty('display')
-              this.el.classList.add('sidebar-collapse')
-              document.body.classList.add('sidebar-collapsed')
+              onAllFinish()
             }
           }, 300)
+        }
+        const onAllFinish = () => {
+          wrapper.querySelector('.sidebar-brand span').style.removeProperty('display')
+          this.el.classList.add('sidebar-collapse')
+          document.body.classList.add('sidebar-collapsed')
+          this.collapseAllSubMenu()
         }
       }
     }
     btn.addEventListener('click', toggle)
   }
 
-  prepareMenuItemHasSubMenu() {
-    this.el = document.querySelector(this.query)
+  openSubMenuIfActive() {
     const menus = this.el.querySelectorAll('.sidebar-menu')
     menus.forEach(menu => {
       const items = menu.querySelectorAll('.sidebar-item')
@@ -119,6 +182,7 @@ export default class Sidebar {
           let parent = item.parentElement.parentElement
           while (true) {
             parent.classList.add('submenu-open')
+            parent.classList.add('submenu-active')
             if (!parent.parentElement.classList.contains('sidebar-submenu') || !parent.parentElement.parentElement.classList.contains('sidebar-item')) {
               break
             } else {
@@ -126,34 +190,26 @@ export default class Sidebar {
             }
           }
         }
+      })
+    })
+  }
 
-        // add event listener
-        const itemLink = item.querySelector('.sidebar-link')
-        if (item.classList.contains('has-submenu')) {
-          itemLink.addEventListener('click', (e) => {
-            e.preventDefault()
-            const submenu = item.querySelector('.sidebar-submenu')
-            if (item.classList.contains('submenu-open')) {
-              submenu.animate([
-                { height: submenu.scrollHeight + 'px' },
-                { height: 0 }
-              ],{
-                duration: 400,
-                easing: 'ease-in'
-              }).onfinish = () => {
-                item.classList.remove('submenu-open')
-              }
-            } else {
-              item.classList.add('submenu-open')
-              submenu.animate([
-                { height: 0 },
-                { height: submenu.scrollHeight + 'px' }
-              ],{
-                duration: 400,
-                easing: 'ease-out'
-              })
-            }
-          })
+  collapseAllSubMenu() {
+    const menus = this.el.querySelectorAll('.sidebar-menu')
+    menus.forEach(menu => {
+      const items = menu.querySelectorAll('.sidebar-item')
+      items.forEach(item => {
+        if (item.classList.contains('submenu-open')) {
+          const submenu = item.querySelector('.sidebar-submenu')
+          submenu.animate([
+            { height: submenu.scrollHeight + 'px' },
+            { height: 0 }
+          ],{
+            duration: 400,
+            easing: 'ease-in'
+          }).onfinish = () => {
+            item.classList.remove('submenu-open')
+          }
         }
       })
     })

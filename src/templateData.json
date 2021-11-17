@@ -78,8 +78,16 @@
     },
     {
       "type": "item",
-      "label": "Extra Component",
-      "icon": "<i class=\"icon\" data-feather=\"layers\"></i>"
+      "label": "Bootsarc Component",
+      "icon": "<i class=\"icon\" data-feather=\"layers\"></i>",
+      "items": [
+        {
+          "type": "item",
+          "label": "Sidebar",
+          "icon": "<i class=\"icon\" data-feather=\"sidebar\"></i>",
+          "link": "components/bootsarc-sidebar.html"
+        }
+      ]
     },
     {
       "type": "item",

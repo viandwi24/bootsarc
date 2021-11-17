@@ -5,17 +5,17 @@
         </button>
         <div class="sidebar-header">
             <a href="{{ 'index.html'|page }}" class="sidebar-brand">
-                <img src="{{ 'logo/logo.png'|images }}" alt="{{ app.name }}" height="32" class="logo">
+                <img src="{{ 'logo/logo_64.png'|images }}" alt="{{ app.name }}" height="42" class="logo">
                 <span>Bootsarc</span>
             </a>
         </div>
         <div class="sidebar-content">
-            <ul class="sidebar-menu flex-fill">
+            <ul class="sidebar-menu">
                 {% set sidebarCurrentLoopItems = sidebarMenuItems %}
                 {% set i = 0 %}
                 {% include "generator/sidebar-items.html" %}
             </ul>
-            <div class="sidebar-avatar-box">
+            {# <div class="sidebar-avatar-box">
                 <div class="sidebar-avatar-box__wrapper">
                     <div class="sidebar-avatar-box__avatar-wrapper">
                         <img src="{{ 'avatars/2.png'|images }}" alt="Avatar" class="rounded-circle" height="42" width="42">
@@ -25,7 +25,7 @@
                         <div class="sidebar-avatar-box__user__email">viandwicyber@gmail.com</div>
                     </div>
                 </div>
-            </div>
+            </div> #}
         </div>
     </div>
 </nav>

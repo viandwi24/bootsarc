@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ app.name }}</title>
-    <!-- styles -->
-    <link rel="stylesheet" href="{{ 'css/bootsarc.bootstrap.css'|dist }}">
-    <!-- fonts & icons -->
-    <link rel="stylesheet" href="{{ 'bootstrap-icons/bootstrap-icons.css'|vendor }}">
-    <link rel="stylesheet" href="{{ 'fontawesome/css/all.min.css'|vendor }}">
+    <!-- required styles -->
+    <link rel="stylesheet" href="{{ 'bootstrap-icons/bootstrap-icons.css'|vendor }}"> <!-- bootsarc dependencies | components : fonts -->
+    <link rel="stylesheet" href="{{ 'fontawesome/css/all.min.css'|vendor }}"> <!-- bootsarc dependencies | components : fonts -->
+    <link rel="stylesheet" href="{{ 'overlay-scrollbars/css/OverlayScrollbars.min.css'|vendor }}"> <!-- bootsarc dependencies | components : scrollbar -->
+    <link rel="stylesheet" href="{{ 'css/bootsarc.bootstrap.css'|dist }}"> <!-- bootsarc main styles -->
 </head>
 <body class="auto-init {% if layout %}{{ layout }}{% endif %}">
     <div id="app" class="app">
@@ -23,11 +23,13 @@
         </main>
     </div>
 
-    <!-- fonts & icons -->
-    <script src="{{ 'feather-icons/dist/feather.min.js'|vendor }}"></script>
-    <!-- scripts -->
-    <script src="{{ 'bootstrap/dist/js/bootstrap.min.js'|vendor }}"></script>
+    <!-- required scripts -->
+    <script src="{{ 'feather-icons/dist/feather.min.js'|vendor }}"></script> <!-- bootsarc dependencies | components : fonts -->
+    <script src="{{ 'overlay-scrollbars/js/OverlayScrollbars.min.js'|vendor }}"></script> <!-- bootsarc dependencies | components : scrollbar -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script> <!-- bootstrap dependencies -->
+    <script src="{{ 'bootstrap/dist/js/bootstrap.min.js'|vendor }}"></script> <!-- bootsarc main scripts -->
     {# <script src="{{ 'js/bootsarc.bootstrap.js'|dist }}"></script> #}
     <script src="{{ 'js/bootsarc.js'|dist }}"></script>
+    <!-- custom scripts -->
 </body>
 </html>
