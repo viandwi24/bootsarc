@@ -10,7 +10,7 @@
     "dev": "gulp autoreload",
     "build": "yarn gulp build",
     "css:lint": "gulp css:lint",
-    "js:lint": "eslint --ext \".js\" --ignore-path .gitignore .",
+    "js:lint": "eslint --ext \".js\" .",
     "lint": "yarn css:lint && yarn js:lint"
   },
   "devDependencies": {
