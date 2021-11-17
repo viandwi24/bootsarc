@@ -14,6 +14,7 @@ body {
     .main {
       padding: $main-padding;
       flex: 1 1 auto;
+      z-index: 5;
     }
   }
 
@@ -23,6 +24,27 @@ body {
       .main {
         margin: $main-margin;
         padding: $main-padding;
+      }
+    }
+  }
+}
+// responsive
+@include media-breakpoint-down(md) {
+  body {
+    .app {
+      .main {
+        padding: 1rem 1rem !important;
+      }
+    }
+  }
+}
+@include media-breakpoint-down(md) {
+  body {
+    &.sidebar-fixed {
+      .app {
+        .main {
+          margin: 0;
+        }
       }
     }
   }

@@ -9,19 +9,23 @@
     <link rel="stylesheet" href="/dist/css/bootsarc.bootstrap.css">
     <!-- fonts & icons -->
     <link rel="stylesheet" href="/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="/vendors/fontawesome/css/all.min.css">
 </head>
 <body class="auto-init sidebar-fixed">
     <div id="app" class="app">
         
-            <nav class="sidebar scroll-only-menu">
+            <nav class="sidebar">
     <div class="sidebar-wrapper">
+        <button class="sidebar-collapse-btn">
+            <i class="fa fa-chevron-left"></i>
+        </button>
         <div class="sidebar-header">
             <a href="/pages/index.html" class="sidebar-brand">
-                <img src="/assets/images/logo/logo.png" alt="Bootsarc" height="32">
+                <img src="/assets/images/logo/logo.png" alt="Bootsarc" height="32" class="logo">
                 <span>Bootsarc</span>
             </a>
         </div>
-        <div class="flex-fill d-flex flex-column justify-content-between sidebar-max-height">
+        <div class="sidebar-content">
             <ul class="sidebar-menu flex-fill">
                 
                 
@@ -441,6 +445,7 @@
     </div>
 </nav>
 
+
         
         <main class="main">
             <div class="container-fluid">
@@ -505,10 +510,9 @@
 
     <!-- fonts & icons -->
     <script src="/vendors/feather-icons/dist/feather.min.js"></script>
-    
     <!-- scripts -->
+    <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     
-    <script src="/dist/js/bootsarc.bootstrap.js"></script>
     <script src="/dist/js/bootsarc.js"></script>
 </body>
 </html>

@@ -7,8 +7,7 @@ const script = (src) => path.join(__dirname, `src/scripts/${src}.js`)
 module.exports = {
     mode: "production",
     entry: {
-        'bootsarc.bundle': script('bootsarc.bundle'),
-        'bootsarc.bootstrap': script('bootsarc.bootstrap'),
+        // 'bootsarc.bootstrap': script('bootsarc.bootstrap'),
         'bootsarc': script('bootsarc')
     },
     output: {
