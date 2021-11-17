@@ -98,6 +98,7 @@ $main-padding: $main-padding-y $main-padding-x;
 @import "components/icons";
 @import "components/sidebar";
 @import "components/page";
+@import "components/component-viewer";
 
 // Helpers
 @import "helpers";
@@ -119,21 +120,3 @@ $rotates: 90, 180, 270, 360, -90, -180, -270, -360;
 // scss-docs-end import-stack
 
 // Others
-.component-viewer {
-  border-radius: 7px;
-  border: 1px solid $gray-300;
-  padding: 2rem;
-  padding-top: 3rem;
-  background: $gray-200;
-  position: relative;
-  overflow: hidden;
-  &::after {
-    content: "Component Viewer";
-    padding: .25rem .5rem;
-    position: absolute;
-    @include font-size($font-size-xs);
-    top: 0;
-    left: 0;
-    background: $white;
-  }
-}

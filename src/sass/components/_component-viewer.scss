@@ -1,0 +1,56 @@
+.component-viewer {
+  border: 1px solid $gray-300;
+  border-radius: 7px;
+
+  .component-viewer-result,
+  .component-viewer-code {
+    position: relative;
+    &::after {
+      padding: .25rem .5rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: $white;
+      @include font-size($font-size-xs);
+    }
+  }
+
+  .component-viewer-result {
+    position: relative;
+    border-radius: 7px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 2rem;
+    padding-top: 3rem;
+    background: $gray-200;
+    &::after {
+      content: "Component Viewer";
+    }
+  }
+
+  .component-viewer-code {
+    position: relative;
+    border-radius: 7px;
+    background: $gray-300;
+    pre {
+      margin: 0;
+      padding: 2.5rem;
+      padding-bottom: 2rem;
+    }
+    .component-viewer-button-copy {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: .5rem 1rem;
+      background: $gray-200;
+      border-radius: 0 0 7px 7px;
+      @include font-size($font-size-xs);
+      &:hover {
+        background: $gray-300;
+      }
+    }
+    &::after {
+      content: "Code";
+    }
+  }
+}

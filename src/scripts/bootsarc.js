@@ -1,4 +1,5 @@
 import Sidebar from './components/sidebar'
+import ComponentViewer from './components/component-viewer'
 
 function BootsarchInit() {
   // body scrollbar
@@ -10,6 +11,12 @@ function BootsarchInit() {
   // sidebar
   const sidebar = new Sidebar()
   sidebar.init()
+
+  // Component Viewer
+  const componentViewers = document.querySelectorAll('.component-viewer')
+  componentViewers.forEach(el => {
+    (new ComponentViewer(el))
+  })
 
   // icons
   if (typeof window.feather !== 'undefined') {
@@ -33,5 +40,6 @@ if (typeof document !== 'undefined') {
 
 export {
   Sidebar,
+  ComponentViewer,
   BootsarchInit
 }

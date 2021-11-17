@@ -42,6 +42,7 @@
     "bootstrap": "^5.1.3",
     "express": "^4.17.1",
     "gulp-beautify": "^3.0.0",
+    "js-beautify": "^1.14.0",
     "nodemon": "^2.0.15"
   }
 }

@@ -7075,6 +7075,61 @@ body.navbar-fixed .app .main {
   border-radius: 0.3rem;
 }
 
+.component-viewer {
+  border: 1px solid #dee2e6;
+  border-radius: 7px;
+}
+.component-viewer .component-viewer-result,
+.component-viewer .component-viewer-code {
+  position: relative;
+}
+.component-viewer .component-viewer-result::after,
+.component-viewer .component-viewer-code::after {
+  padding: 0.25rem 0.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #FEFFFF;
+  font-size: 0.725rem;
+}
+.component-viewer .component-viewer-result {
+  position: relative;
+  border-radius: 7px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 2rem;
+  padding-top: 3rem;
+  background: #e9ecef;
+}
+.component-viewer .component-viewer-result::after {
+  content: "Component Viewer";
+}
+.component-viewer .component-viewer-code {
+  position: relative;
+  border-radius: 7px;
+  background: #dee2e6;
+}
+.component-viewer .component-viewer-code pre {
+  margin: 0;
+  padding: 2.5rem;
+  padding-bottom: 2rem;
+}
+.component-viewer .component-viewer-code .component-viewer-button-copy {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem 1rem;
+  background: #e9ecef;
+  border-radius: 0 0 7px 7px;
+  font-size: 0.725rem;
+}
+.component-viewer .component-viewer-code .component-viewer-button-copy:hover {
+  background: #dee2e6;
+}
+.component-viewer .component-viewer-code::after {
+  content: "Code";
+}
+
 .clearfix::after {
   display: block;
   clear: both;
@@ -13870,23 +13925,4 @@ body.navbar-fixed .app .main {
 
 .rotate--360 {
   transform: rotate(-360deg);
-}
-
-.component-viewer {
-  border-radius: 7px;
-  border: 1px solid #dee2e6;
-  padding: 2rem;
-  padding-top: 3rem;
-  background: #e9ecef;
-  position: relative;
-  overflow: hidden;
-}
-.component-viewer::after {
-  content: "Component Viewer";
-  padding: 0.25rem 0.5rem;
-  position: absolute;
-  font-size: 0.725rem;
-  top: 0;
-  left: 0;
-  background: #FEFFFF;
 }

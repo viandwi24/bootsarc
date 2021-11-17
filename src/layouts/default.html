@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ 'fontawesome/css/all.min.css'|vendor }}"> <!-- bootsarc dependencies | components : fonts -->
     <link rel="stylesheet" href="{{ 'overlay-scrollbars/css/OverlayScrollbars.min.css'|vendor }}"> <!-- bootsarc dependencies | components : scrollbar -->
     <link rel="stylesheet" href="{{ 'css/bootsarc.bootstrap.css'|dist }}"> <!-- bootsarc main styles -->
+    <link rel="stylesheet" href="{{ 'prism/themes/prism-twilight.css'|vendor }}"> <!-- bootsarc dependencies | components : fonts -->
 </head>
 <body class="auto-init {% if layout %}{{ layout }}{% else %}sidebar-fixed navbar-fixed{% endif %}">
     <div id="app" class="app">
@@ -56,6 +57,7 @@
     </div>
 
     <!-- required scripts -->
+    <script src="{{ 'prism/prism.js'|vendor }}"></script> <!-- bootsarc dependencies | components : component viewer -->
     <script src="{{ 'feather-icons/dist/feather.min.js'|vendor }}"></script> <!-- bootsarc dependencies | components : fonts -->
     <script src="{{ 'overlay-scrollbars/js/OverlayScrollbars.min.js'|vendor }}"></script> <!-- bootsarc dependencies | components : scrollbar -->
     <script src="https://unpkg.com/@popperjs/core@2"></script> <!-- bootstrap dependencies -->
