@@ -75,16 +75,18 @@ export default class Sidebar {
         this.el.classList.remove('sidebar-collapse')
 
         const animmateShowHeader = () => {
-          wrapper.querySelectorAll('.sidebar-item-header').forEach((el, i) => {
-            el.style.display = null
-            el.animate([ { opacity: 0 }, { opacity: 1 } ],{ duration: 250, easing: 'ease-in' })
-          })
           wrapper.querySelectorAll('.sidebar-link span').forEach(text => {
             text.style.display = null
             text.animate([ { opacity: 0 }, { opacity: 1 } ],{ duration: 250, easing: 'ease-in' })
           })
-          document.body.classList.remove('sidebar-collapsed')
-          setTimeout(() => onAllFinish(), 250)
+          setTimeout(() => {
+            wrapper.querySelectorAll('.sidebar-item-header').forEach((el, i) => {
+              el.style.display = null
+              el.animate([ { opacity: 0 }, { opacity: 1 } ],{ duration: 250, easing: 'ease-in' })
+            })
+            document.body.classList.remove('sidebar-collapsed')
+            setTimeout(() => onAllFinish(), 250)
+          }, 500)
         }
         const animateSidebarWidth = () => {
           document.body.classList.remove('sidebar-collapsed')
@@ -128,12 +130,13 @@ export default class Sidebar {
           wrapper.querySelector('.sidebar-brand span')
             .animate([ { opacity: 1, display: 'inline' }, { opacity: 0, display: 'none' } ],{ duration: 500, easing: 'ease-in' })
             .onfinish = () => wrapper.querySelector('.sidebar-brand span').style.display = 'none'
-          wrapper.querySelectorAll('.sidebar-content > *').forEach(el => {
-            if (el.classList.contains('sidebar-menu')) return
-            el.animate([ { opacity: 1 }, { opacity: 0 } ],{ duration: 300, easing: 'ease-in' }).onfinish = () => {
-              el.style.display = 'none'
-            }
-          })
+          // wrapper.querySelectorAll('.sidebar-content > *').forEach(el => {
+          //   console.log(el)
+          //   if (el.classList.contains('sidebar-menu')) return
+          //   el.animate([ { opacity: 1 }, { opacity: 0 } ],{ duration: 300, easing: 'ease-in' }).onfinish = () => {
+          //     el.style.display = 'none'
+          //   }
+          // })
           setTimeout(() => animateSidebarWidth(), 350)
         }
         const animateSidebarWidth = () => {
