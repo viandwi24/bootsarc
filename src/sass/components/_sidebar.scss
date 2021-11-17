@@ -261,11 +261,13 @@
     }
   }
 }
-body.sidebar-collapsed {
-  .app {
-    .main {
-      margin-left: 5rem;
-      padding: $main-padding;
+@include media-breakpoint-up(md) {
+  body.sidebar-collapsed {
+    .app {
+      .main {
+        margin-left: 5rem;
+        padding: $main-padding;
+      }
     }
   }
 }

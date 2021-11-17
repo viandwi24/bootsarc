@@ -345,13 +345,27 @@ body {
     left: 0;
     z-index: 1030;
     padding-right: $main-padding-x;
+  }
+}
+
+// responsive
+@include media-breakpoint-up(md) {
+  .navbar.main-navbar {
     padding-left: calc(#{$sidebar-wrapper-width} + #{$main-padding-x});
   }
-
-  // when sidebar collapsed
-  &.sidebar-collapsed {
-    .navbar.main-navbar {
-      padding-left: calc(#{$sidebar-collapse-wrapper-width} + #{$main-padding-x});
-    }  
+}
+@include media-breakpoint-down(md) {
+  .navbar.main-navbar {
+    padding-left: $navbar-padding-x;
+  }
+}
+@include media-breakpoint-up(md) {
+  body {
+    // when sidebar collapsed
+    &.sidebar-collapsed {
+      .navbar.main-navbar {
+        padding-left: calc(#{$sidebar-collapse-wrapper-width} + #{$navbar-padding-x});
+      }
+    }
   }
 }
