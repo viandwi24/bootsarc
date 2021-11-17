@@ -1,4 +1,6 @@
 # [Bootsarc - Bootstrap 5 Modern Admin Dashboard](https://github.com/viandwi24/bootsarc)
+> **WARNING** \
+> Bootsarc is under development, it is not recommended to use it for production purposes now!
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/viandwi24/bootsarc)
 [![License](https://img.shields.io/github/license/viandwi24/bootsarc.svg)](LICENSE)
