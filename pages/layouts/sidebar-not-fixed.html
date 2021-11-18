@@ -14,20 +14,20 @@
   <link rel="stylesheet" href="/vendors/prism/themes/prism-twilight.css"> <!-- bootsarc dependencies | components : fonts -->
 </head>
 
-<body class="auto-init sidebar-fixed navbar-fixed">
+<body class="auto-init navbar-fixed">
   <div id="app" class="app">
-    <nav class="sidebar">
+    <nav class="sidebar ">
       <div class="sidebar-wrapper">
         <button class="sidebar-collapse-btn">
           <i class="fa fa-chevron-left"></i>
         </button>
         <div class="sidebar-header">
           <a href="/pages/index.html" class="sidebar-brand">
-            <img src="/assets/images/logo/logo.png" alt="Bootsarc" height="32" class="logo">
+            <img src="/assets/images/logo/logo_64.png" alt="Bootsarc" height="42" class="logo">
             <span>Bootsarc</span>
           </a>
         </div>
-        <div class="d-flex flex-column justify-content-between flex-fill">
+        <div class="sidebar-content">
           <ul class="sidebar-menu">
             <li class="sidebar-item  ">
               <a class="sidebar-link" href=" /pages/index.html ">
@@ -47,6 +47,12 @@
                     <span>Sidebar Layout</span>
                   </a>
                   <ul class="sidebar-submenu">
+                    <li class="sidebar-item  ">
+                      <a class="sidebar-link" href=" /pages/layouts/sidebar-sub-indent.html ">
+                        <i class="icon" data-feather="circle"></i>
+                        <span>Submenu Indent</span>
+                      </a>
+                    </li>
                     <li class="sidebar-item  active  ">
                       <a class="sidebar-link" href=" /pages/layouts/sidebar-not-fixed.html ">
                         <i class="icon" data-feather="circle"></i>
@@ -54,9 +60,21 @@
                       </a>
                     </li>
                     <li class="sidebar-item  ">
-                      <a class="sidebar-link" href=" /pages/layouts/sidebar-full-scroll.html ">
+                      <a class="sidebar-link" href=" /pages/layouts/sidebar-flat.html ">
                         <i class="icon" data-feather="circle"></i>
-                        <span>Sidebar Full Scroll</span>
+                        <span>Flat Style</span>
+                      </a>
+                    </li>
+                    <li class="sidebar-item  ">
+                      <a class="sidebar-link" href=" /pages/layouts/sidebar-legacy.html ">
+                        <i class="icon" data-feather="circle"></i>
+                        <span>Legacy Style</span>
+                      </a>
+                    </li>
+                    <li class="sidebar-item  ">
+                      <a class="sidebar-link" href=" /pages/layouts/sidebar-flat-indent.html ">
+                        <i class="icon" data-feather="circle"></i>
+                        <span>Flat &amp; Indent Style</span>
                       </a>
                     </li>
                   </ul>
@@ -258,8 +276,8 @@
         </div>
       </div>
     </nav>
-    <main class="main">
-      <div class="container-fluid">
+    <div class="container-fluid main-container">
+      <main class="main">
         <h1>Layout / Sidebar Not Fixed</h1>
         <h1>Layout / Sidebar Not Fixed</h1>
         <h1>Layout / Sidebar Not Fixed</h1>
@@ -290,8 +308,8 @@
         <h1>Layout / Sidebar Not Fixed</h1>
         <h1>Layout / Sidebar Not Fixed</h1>
         <h1>Layout / Sidebar Not Fixed</h1>
-      </div>
-    </main>
+      </main>
+    </div>
   </div>
   <!-- required scripts -->
   <script src="/vendors/prism/prism.js"></script> <!-- bootsarc dependencies | components : component viewer -->

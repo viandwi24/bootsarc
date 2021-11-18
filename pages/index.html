@@ -16,7 +16,7 @@
 
 <body class="auto-init sidebar-fixed navbar-fixed">
   <div id="app" class="app">
-    <nav class="sidebar">
+    <nav class="sidebar ">
       <div class="sidebar-wrapper">
         <button class="sidebar-collapse-btn">
           <i class="fa fa-chevron-left"></i>
@@ -48,15 +48,33 @@
                   </a>
                   <ul class="sidebar-submenu">
                     <li class="sidebar-item  ">
+                      <a class="sidebar-link" href=" /pages/layouts/sidebar-sub-indent.html ">
+                        <i class="icon" data-feather="circle"></i>
+                        <span>Submenu Indent</span>
+                      </a>
+                    </li>
+                    <li class="sidebar-item  ">
                       <a class="sidebar-link" href=" /pages/layouts/sidebar-not-fixed.html ">
                         <i class="icon" data-feather="circle"></i>
                         <span>Sidebar Not Fixed</span>
                       </a>
                     </li>
                     <li class="sidebar-item  ">
-                      <a class="sidebar-link" href=" /pages/layouts/sidebar-full-scroll.html ">
+                      <a class="sidebar-link" href=" /pages/layouts/sidebar-flat.html ">
                         <i class="icon" data-feather="circle"></i>
-                        <span>Sidebar Full Scroll</span>
+                        <span>Flat Style</span>
+                      </a>
+                    </li>
+                    <li class="sidebar-item  ">
+                      <a class="sidebar-link" href=" /pages/layouts/sidebar-legacy.html ">
+                        <i class="icon" data-feather="circle"></i>
+                        <span>Legacy Style</span>
+                      </a>
+                    </li>
+                    <li class="sidebar-item  ">
+                      <a class="sidebar-link" href=" /pages/layouts/sidebar-flat-indent.html ">
+                        <i class="icon" data-feather="circle"></i>
+                        <span>Flat &amp; Indent Style</span>
                       </a>
                     </li>
                   </ul>
@@ -258,8 +276,8 @@
         </div>
       </div>
     </nav>
-    <main class="main">
-      <div class="container-fluid">
+    <div class="container-fluid main-container">
+      <main class="main">
         <div class="page-header">
           <div class="page-nav d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
@@ -277,8 +295,8 @@
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   </div>
   <!-- required scripts -->
   <script src="/vendors/prism/prism.js"></script> <!-- bootsarc dependencies | components : component viewer -->
