@@ -27,15 +27,33 @@
           "items": [
             {
               "type": "item",
+              "label": "Submenu Indent",
+              "icon": "<i class=\"icon\" data-feather=\"circle\"></i>",
+              "link": "layouts/sidebar-sub-indent.html"
+            },
+            {
+              "type": "item",
               "label": "Sidebar Not Fixed",
               "icon": "<i class=\"icon\" data-feather=\"circle\"></i>",
               "link": "layouts/sidebar-not-fixed.html"
             },
             {
               "type": "item",
-              "label": "Sidebar Full Scroll",
+              "label": "Flat Style",
               "icon": "<i class=\"icon\" data-feather=\"circle\"></i>",
-              "link": "layouts/sidebar-full-scroll.html"
+              "link": "layouts/sidebar-flat.html"
+            },
+            {
+              "type": "item",
+              "label": "Legacy Style",
+              "icon": "<i class=\"icon\" data-feather=\"circle\"></i>",
+              "link": "layouts/sidebar-legacy.html"
+            },
+            {
+              "type": "item",
+              "label": "Flat & Indent Style",
+              "icon": "<i class=\"icon\" data-feather=\"circle\"></i>",
+              "link": "layouts/sidebar-flat-indent.html"
             }
           ]
         },

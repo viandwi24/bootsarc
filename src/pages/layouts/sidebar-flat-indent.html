@@ -1,0 +1,28 @@
+{% extends "default.html" %}
+
+{% import "components/page.html" as page %}
+
+{% set pageTitle = "Flat & Indent Style" %}
+{% set sidebarLayout = "sidebar-flat-style sidebar-submenu-indent" %}
+
+{% block content %}
+    {%
+        set breadcrumbItems = [
+            { text: "Dashboard", link: "../index.html" },
+            { text: "Layout" },
+            { text: "Saidebar Layout" },
+            { text: "Flat & Indent Style", active: true }
+        ]
+    %}
+    <div class="page-header">
+        <div class="d-flex justify-content-between">
+            <h1 class="page-title">{{ pageTitle|safe }}</h1>
+        </div>
+        <div class="page-detail d-flex">
+            {{ page.breadcrumb(breadcrumbItems) }}
+        </div>
+    </div>
+    
+    <div class="page-content">
+    </div>
+{% endblock %}

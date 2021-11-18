@@ -15,7 +15,6 @@ body {
     display: flex;
     .main {
       padding: $main-padding;
-      min-height: 100vh;
       flex: 1 1 auto;
       z-index: 5;
     }

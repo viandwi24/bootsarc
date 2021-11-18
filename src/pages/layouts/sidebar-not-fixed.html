@@ -1,11 +1,7 @@
 {% extends "default.html" %}
 
 {% set pageTitle = "Sidebar Not Fixed" %}
-{% set layout = "" %}
-
-{% block sidebar %}
-    {% include "sidebar-not-fixed.html" %}
-{% endblock %}
+{% set layout = "navbar-fixed" %}
 
 {% block content %}
     {% for item in range(0, 30) %}

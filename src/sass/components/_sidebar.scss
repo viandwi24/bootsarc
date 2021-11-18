@@ -2,14 +2,14 @@
 .sidebar {
   z-index: $sidebar-z-index;
   .sidebar-wrapper {
-    position: fixed;
+    position: relative;
+    height: 100%;
     background-color: $sidebar-wrapper-background-color;
     width: $sidebar-wrapper-width;
-    height: 100vh;
     box-shadow: $sidebar-box-shadow;
 
     .sidebar-content {
-      height: calc(100vh - (#{$sidebar-header-height} + 1px));
+      height: calc(100% - (#{$sidebar-header-height} + 1px));
     }
   }
 }
@@ -190,6 +190,102 @@
     }
   }
 }
+
+
+// Sidebar Extra ======================================================================================
+// sidebar fixed
+body.sidebar-fixed .sidebar > .sidebar-wrapper {
+  position: fixed;
+  .sidebar-content {
+    height: calc(100vh - (#{$sidebar-header-height} + 1px));
+  }
+}
+// submenu indent
+.sidebar.sidebar-submenu-indent > .sidebar-wrapper {
+  .sidebar-submenu {
+    padding-left: 1rem;
+  }
+}
+// flat style
+.sidebar.sidebar-flat-style > .sidebar-wrapper {
+  .sidebar-menu {
+    padding: 0;
+    .sidebar-item {
+      .sidebar-link {
+        border-radius: 0;
+        padding: 0.7rem 1.5rem;
+        margin-bottom: 0;
+      }
+      .sidebar-submenu {
+        background-color: rgba($sidebar-item-hover-background-color, 0.35);
+      }
+      &.active {
+        .sidebar-link {
+          border-left: 5px solid $sidebar-item-active-background-color;
+        }
+      }
+    }
+
+    .sidebar-submenu {
+      & > .sidebar-item {
+        & > .sidebar-link {
+          border-left: 5px solid $sidebar-item-active-background-color;
+          padding-left: calc(1rem + .5rem - 5px);
+        }
+      }
+    }
+  }
+}
+// legacy style
+.sidebar.sidebar-legacy-style > .sidebar-wrapper {
+  .sidebar-menu {
+    padding: 0;
+    .sidebar-item {
+      .sidebar-link {
+        border-radius: 0;
+        padding: 0.7rem 1.5rem;
+        margin-bottom: 0;
+      }
+      .sidebar-submenu {
+        background-color: rgba($sidebar-item-hover-background-color, 0.35);
+      }
+      &.submenu-active > .sidebar-link {
+        color: $gray-700;
+        background-color: $sidebar-item-background-color;
+      }
+      &.active {
+        .sidebar-link {
+          color: $gray-700;
+          background-color: $sidebar-item-background-color;
+        }
+      }
+    }
+
+    & > .sidebar-item {
+      &.has-submenu.submenu-open > .sidebar-link {
+        border-left: 5px solid $sidebar-item-active-background-color;
+        padding-left: calc(1.5rem - 5px);
+      }
+    }
+  }
+}
+// submenu indent for style
+.sidebar.sidebar-submenu-indent {
+  &.sidebar-flat-style, sidebar-legacy-style {
+    .sidebar-wrapper {
+      .sidebar-submenu {
+        padding-left: 0;
+        .sidebar-item {
+          .sidebar-link {
+            padding-left: calc(1.5rem + 1rem - 5px);
+          }
+        }
+      }
+    }
+  }
+}
+
+
 
 // Sidebar Collapse Button
 .sidebar {
