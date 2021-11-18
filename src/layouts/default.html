@@ -49,11 +49,16 @@
                 </div>
             </nav>
         {% endblock %}
-        <main class="main">
+        {# <main class="main">
             <div class="container-fluid">
                 {% block content %}{% endblock %}
             </div>
-        </main>
+        </main> #}
+        <div class="container-fluid main-container">
+            <main class="main">
+                {% block content %}{% endblock %}
+            </main>
+        </div>
     </div>
 
     <!-- required scripts -->

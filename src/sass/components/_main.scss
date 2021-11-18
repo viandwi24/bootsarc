@@ -5,6 +5,8 @@
 @import "../mixins/scrollbar";
 // base
 body {
+  // overflow: hidden;
+
   // scrollbar
   @include scrollbar;
   
@@ -13,6 +15,7 @@ body {
     display: flex;
     .main {
       padding: $main-padding;
+      min-height: 100vh;
       flex: 1 1 auto;
       z-index: 5;
     }
@@ -44,7 +47,7 @@ body {
   body {
     .app {
       .main {
-        padding: 1rem 1rem !important;
+        padding: 1rem .5rem !important;
       }
     }
   }
