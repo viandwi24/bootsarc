@@ -345,6 +345,16 @@ body {
     left: 0;
     z-index: 1030;
     padding-right: $main-padding-x;
+    box-shadow: 0 .2rem 1rem rgba(0, 0, 0, 0.01);
+  }
+}
+body.navbar-fixed {
+  .navbar.main-navbar {
+    position: fixed;
+    transition: box-shadow .5s ease;
+    &.on-scroll {
+      box-shadow: 0 .2rem 1rem rgba(0, 0, 0, 0.15);
+    }
   }
 }
 
