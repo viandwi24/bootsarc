@@ -24,5 +24,6 @@ export default class Navbar {
         this.el.classList.remove('on-scroll')
       }      
     })
+    
   }
 }

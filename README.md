@@ -12,6 +12,7 @@
 
 
 ![Preview](https://github.com/viandwi24/bootsarc/blob/main/assets/images/screenshots/preview.gif?raw=true)
+![Screenshot](https://github.com/viandwi24/bootsarc/blob/main/assets/images/screenshots/screenshot.png?raw=true)
 
 ## Demo
 Live Demo: [https://bootsarc.vercel.app](https://bootsarc.vercel.app)
